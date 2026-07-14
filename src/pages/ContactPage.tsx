@@ -177,7 +177,8 @@ export const ContactPage: React.FC = () => {
                     placeholder="e.g. Ifeanyi Nwosu"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full px-4.5 py-3.5 rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-all"
+                    className="w-full rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm transition-all"
+                    style={{ padding: '0.875rem 1.125rem' }}
                   />
                 </div>
 
@@ -192,7 +193,8 @@ export const ContactPage: React.FC = () => {
                     placeholder="e.g. ifeanyi@brand.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4.5 py-3.5 rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-all"
+                    className="w-full rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm transition-all"
+                    style={{ padding: '0.875rem 1.125rem' }}
                   />
                 </div>
               </div>
@@ -209,7 +211,8 @@ export const ContactPage: React.FC = () => {
                     placeholder="+234 806 XXX XXXX"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4.5 py-3.5 rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-all"
+                    className="w-full rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm transition-all"
+                    style={{ padding: '0.875rem 1.125rem' }}
                   />
                 </div>
 
@@ -221,7 +224,8 @@ export const ContactPage: React.FC = () => {
                   <select
                     value={formData.serviceRequired}
                     onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                    className="w-full px-4.5 py-3.5 rounded-xl bg-[#1A1A24] border border-white/15 text-white text-sm focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-all"
+                    className="w-full rounded-xl bg-[#1A1A24] border border-white/15 text-white text-sm transition-all"
+                    style={{ padding: '0.875rem 1.125rem' }}
                   >
                     <option value="Cinematography">Cinematography & Brand Films</option>
                     <option value="Event Coverage">Event & Wedding Documentation</option>
@@ -245,7 +249,8 @@ export const ContactPage: React.FC = () => {
                   placeholder="Share your goals, event dates, locations, visual inspiration, or budget expectations..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full p-4.5 rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-all resize-none"
+                  className="w-full rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm transition-all resize-none"
+                  style={{ padding: '1.125rem' }}
                 />
               </div>
 
