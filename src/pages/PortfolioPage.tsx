@@ -18,7 +18,7 @@ export const PortfolioPage: React.FC<PortfolioPageProps> = ({ onOpenBooking, onO
     : WEBSITE_DATA.portfolio.filter(p => p.filterCategory === filter);
 
   return (
-    <div className="pt-40 sm:pt-48 pb-24 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-48 sm:pt-56 pb-24 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-6">

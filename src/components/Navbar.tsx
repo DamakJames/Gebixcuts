@@ -38,8 +38,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
     <header 
       className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-[#08080A]/95 backdrop-blur-md border-b border-white/10 py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.8)]' 
-          : 'bg-gradient-to-b from-black/80 to-transparent py-5'
+          ? 'bg-[#08080A]/98 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.9)]' 
+          : 'bg-gradient-to-b from-[#06060A]/95 via-[#06060A]/70 to-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 bg-[#121218]/95 backdrop-blur-md border border-white/20 px-8 py-2.5 rounded-full shadow-2xl">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 bg-[#121218]/98 backdrop-blur-xl border border-white/20 px-9 py-3 rounded-full shadow-2xl">
           {navLinks.map((link) => {
             const isActive = activeTab === link.id;
             return (
