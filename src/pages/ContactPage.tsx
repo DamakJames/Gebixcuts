@@ -37,10 +37,10 @@ export const ContactPage: React.FC = () => {
       </div>
 
       {/* Main Grid: Info & Form */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
         
         {/* Left Column: Contact Details */}
-        <div className="lg:col-span-5 space-y-8 bg-[#121218] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
+        <div className="md:col-span-5 space-y-8 bg-[#121218] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
           <div>
             <h3 className="font-heading font-extrabold text-2xl text-white">Contact Information</h3>
             <p className="text-sm text-gray-400 mt-1">Direct communication channels for immediate inquiries across Nigeria.</p>
@@ -128,7 +128,7 @@ export const ContactPage: React.FC = () => {
         </div>
 
         {/* Right Column: Contact Form */}
-        <div className="lg:col-span-7 bg-[#121218] rounded-3xl p-8 sm:p-12 border border-[#E6AF2E]/30 shadow-[0_0_50px_rgba(230,175,46,0.15)] relative">
+        <div className="md:col-span-7 bg-[#121218] rounded-3xl p-8 sm:p-12 border border-[#E6AF2E]/30 shadow-[0_0_50px_rgba(230,175,46,0.15)] relative">
           
           <div className="flex items-center justify-between pb-8 border-b border-white/10 mb-8">
             <div>

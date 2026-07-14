@@ -27,8 +27,8 @@ export const About: React.FC<AboutProps> = ({ onOpenBooking }) => {
       </div>
 
       {/* Main Bio Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7 space-y-6 text-gray-300 leading-relaxed text-base">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div className="md:col-span-7 space-y-6 text-gray-300 leading-relaxed text-base">
           <h2 className="font-heading font-bold text-3xl text-white">
             We Are <span className="text-[#E6AF2E]">Gebixcuts.</span>
           </h2>
@@ -53,17 +53,19 @@ export const About: React.FC<AboutProps> = ({ onOpenBooking }) => {
           </div>
         </div>
 
-        <div className="lg:col-span-5 relative">
+        <div className="md:col-span-5 relative">
           <div className="relative rounded-2xl overflow-hidden border border-[#E6AF2E]/40 shadow-[0_0_50px_rgba(230,175,46,0.2)]">
             <img 
-              src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80" 
-              alt="Gebixcuts Behind the Scenes"
-              className="w-full h-auto object-cover"
+              src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80"
+              alt="Gebixcuts Behind the Scenes — Studio Production"
+              className="w-full object-cover"
+              style={{ minHeight: '280px' }}
+              onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1000&q=80'; }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <span className="px-3 py-1 rounded-full bg-[#E6AF2E] text-black font-bold text-xs uppercase">
-                Studio & Cinema Systems
+                Studio &amp; Cinema Systems
               </span>
               <p className="text-white font-heading font-bold text-lg mt-2">
                 Enugu, Nigeria — Available Nationwide
