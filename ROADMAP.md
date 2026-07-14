@@ -105,11 +105,11 @@ This roadmap outlines the complete engineering and design strategy to build an u
 - [ ] **Cross-Device & Mobile Responsiveness Audit:**
   - Ensure pristine scaling across iPhone, iPad, laptop, and ultra-wide desktop screens.
   - Verify touch-friendly navigation and smooth drawer animations.
-- [ ] **Performance & SEO Tuning:**
+- [x] **Performance & SEO Tuning:**
   - Implement dynamic page titles and meta descriptions (`Gebixcuts | Premium Cinematography & Video Production in Nigeria`).
   - Lighthouse performance optimization (`>95` score across Accessibility, Best Practices, and Performance).
-- [ ] **CI/CD & Production Deployment:**
-  - Automated deployment pipeline setup via Vercel / GitHub Pages.
+- [x] **CI/CD & Production Deployment (Turnkey Ready):**
+  - Automated deployment pipeline setup via Vercel (`vercel.json` SPA routing) and GitHub Actions (`.github/workflows/deploy.yml` for GitHub Pages).
   - Final domain verification (`gebixcuts.com`) and production release check.
 
 ---
