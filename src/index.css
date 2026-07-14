@@ -1,0 +1,166 @@
+/* 🎬 GEBIXCUTS DESIGN SYSTEM — CINEMATIC OBSIDIAN & GOLD */
+
+:root {
+  /* Core Backgrounds */
+  --bg-main: #060608;
+  --bg-obsidian: #0A0A0E;
+  --bg-surface: #111116;
+  --bg-surface-elevated: #16161D;
+  --bg-surface-hover: #1D1D26;
+  --bg-surface-glass: rgba(18, 18, 24, 0.75);
+
+  /* Gold & Accents */
+  --gold-primary: #E6AF2E;
+  --gold-light: #F5C542;
+  --gold-dark: #B8861B;
+  --gold-glow: rgba(230, 175, 46, 0.22);
+  --gold-glow-strong: rgba(230, 175, 46, 0.45);
+  --gold-gradient: linear-gradient(135deg, #E6AF2E 0%, #F5C542 50%, #D49B20 100%);
+  --gold-radial: radial-gradient(circle at center, rgba(230, 175, 46, 0.18) 0%, transparent 70%);
+
+  /* Typography Colors */
+  --text-primary: #F8F9FA;
+  --text-secondary: #A0A6B2;
+  --text-muted: #6B7280;
+  --text-dark: #0A0A0E;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-gold: rgba(230, 175, 46, 0.35);
+
+  /* Shadows & Effects */
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  --shadow-gold: 0 0 25px rgba(230, 175, 46, 0.25);
+  --shadow-gold-hover: 0 0 40px rgba(230, 175, 46, 0.45);
+}
+
+/* Reset & Global Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  color-scheme: dark;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Headings Typography */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262633;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Utility & Aesthetic Classes */
+.gold-text {
+  color: var(--gold-primary);
+}
+
+.gold-gradient-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+}
+
+.glow-box {
+  position: relative;
+}
+
+.glow-box::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: var(--gold-gradient);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.glow-box:hover::before {
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4s infinite ease-in-out;
+}
