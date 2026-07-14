@@ -56,7 +56,7 @@ export const About: React.FC<AboutProps> = ({ onOpenBooking }) => {
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-2xl overflow-hidden border border-[#E6AF2E]/40 shadow-[0_0_50px_rgba(230,175,46,0.2)]">
             <img 
-              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" 
+              src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1000&q=80" 
               alt="Gebixcuts Behind the Scenes"
               className="w-full h-auto object-cover"
             />

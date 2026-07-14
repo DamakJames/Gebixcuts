@@ -96,7 +96,7 @@ export const WEBSITE_DATA = {
       fullDesc: "We specialize in in-depth documentary filmmaking for organizations, NGOs, ministries, and personal legacies. Our approach combines exhaustive research, intimate character interviews, and cinematic B-roll to tell powerful narratives that inspire action.",
       category: "Video",
       iconName: "Camera",
-      imageUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
       priceEstimate: "Custom Quote / Project"
     },
     {
