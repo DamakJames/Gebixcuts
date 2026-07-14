@@ -287,34 +287,34 @@ export const WEBSITE_DATA = {
     {
       id: "1",
       quote: "Gebixcuts turned our vision into a cinematic masterpiece. The team is professional, creative, and reliable. Highly recommended!",
-      author: "Pastor E.A. Adeboye",
-      role: "Senior Pastor / Leadership",
-      organization: "Dunamis Intl. Gospel Centre",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+      author: "Happy Client",
+      role: "Verified Production Partner",
+      organization: "Corporate & Ministry Events",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: "2",
       quote: "Their attention to detail and commitment to excellence is second to none. From start to finish, the experience was smooth and the final output was beyond our expectations.",
-      author: "Ifeanyi Nwosu",
-      role: "CEO",
-      organization: "Max Media Group",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+      author: "Happy Client",
+      role: "Verified Brand Client",
+      organization: "Commercial Brand Campaign",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: "3",
       quote: "Our event was captured beautifully from start to finish. Every moment felt truly cinematic and authentic. Working with the Gebixcuts team was seamless.",
-      author: "Chioma Okafor",
-      role: "Lead Event Planner",
-      organization: "Signature Events Enugu",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+      author: "Happy Client",
+      role: "Verified Wedding Client",
+      organization: "Luxury Wedding Production",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: "4",
       quote: "Our real estate brand has grown significantly because of the premium, crisp walkthrough visuals Gebixcuts delivered. Every listing sold within weeks!",
-      author: "David Umeh",
-      role: "Principal Realtor",
-      organization: "Umeh & Co Real Estate",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+      author: "Happy Client",
+      role: "Verified Real Estate Client",
+      organization: "Architectural & Property Showcase",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
     }
   ] as TestimonialItem[],
 

@@ -44,7 +44,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
     <div className="space-y-24 sm:space-y-32">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-28 pb-20 overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center pt-36 pb-24 overflow-hidden">
         {/* Background Atmosphere & Silhouette Mockup overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -69,10 +69,10 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
             </div>
 
             {/* Headline */}
-            <h1 className="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl leading-[1.08] tracking-tight text-white">
+            <h1 className="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl leading-[1.18] tracking-tight text-white py-2">
               Your Story Deserves <br className="hidden sm:inline" />
               More Than Just a Camera. <br />
-              <span className="gold-gradient-text">It Deserves a Vision.</span>
+              <span className="gold-gradient-text block sm:inline mt-2 sm:mt-0">It Deserves a Vision.</span>
             </h1>
 
             {/* Description */}
