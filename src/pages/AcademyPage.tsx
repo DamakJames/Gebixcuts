@@ -57,11 +57,11 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
   ];
 
   return (
-    <div className="pt-32 pb-24 space-y-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-40 sm:pt-48 pb-24 space-y-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Header Banner */}
       <div className="text-center max-w-3xl mx-auto space-y-6">
-        <div className="flex items-center justify-center space-x-2 text-[#E6AF2E]">
+        <div className="inline-flex items-center justify-center gap-3 text-[#E6AF2E]">
           <span className="h-1 w-8 bg-[#E6AF2E] rounded-full" />
           <span className="font-heading font-bold text-xs uppercase tracking-[0.25em]">GEBIXCUTS ACADEMY</span>
           <span className="h-1 w-8 bg-[#E6AF2E] rounded-full" />
@@ -76,9 +76,9 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
         <div className="pt-2">
           <button
             onClick={() => onOpenBooking('Gebixcuts Academy Enrollment')}
-            className="px-8 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-bold text-sm hover:bg-[#F5C542] transition-all shadow-[0_0_30px_rgba(230,175,46,0.5)] scale-105 inline-flex items-center space-x-2"
+            className="px-8 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-bold text-sm hover:bg-[#F5C542] transition-all shadow-[0_0_30px_rgba(230,175,46,0.5)] scale-105 inline-flex items-center gap-2.5"
           >
-            <GraduationCap className="w-5 h-5" />
+            <GraduationCap className="w-5 h-5 shrink-0" />
             <span>Apply for the Next Cohort</span>
           </button>
         </div>
@@ -103,7 +103,7 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-[#1A1A24] border border-white/10 group-hover:border-[#E6AF2E] flex items-center justify-center transition-colors">
+                  <div className="w-14 h-14 rounded-2xl bg-[#1A1A24] border border-white/10 group-hover:border-[#E6AF2E] flex items-center justify-center shrink-0 transition-colors">
                     {course.icon}
                   </div>
                   <span className="px-3 py-1 rounded-full bg-[#E6AF2E]/15 text-[10px] font-bold text-[#E6AF2E] uppercase tracking-wider">
@@ -115,8 +115,8 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
                   {course.title}
                 </h3>
 
-                <p className="text-xs font-semibold text-[#E6AF2E] uppercase tracking-wider flex items-center space-x-1.5">
-                  <BookOpen className="w-4 h-4" />
+                <p className="text-xs font-semibold text-[#E6AF2E] uppercase tracking-wider inline-flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 shrink-0" />
                   <span>{course.duration}</span>
                 </p>
 
@@ -125,14 +125,14 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
                 </p>
               </div>
 
-              <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4">
                 <span className="text-xs text-gray-400 font-medium">Limited Seats / Cohort</span>
                 <button
                   onClick={() => onOpenBooking(`Academy: ${course.title}`)}
-                  className="px-5 py-2.5 rounded-xl bg-[#E6AF2E] text-black font-heading font-bold text-xs hover:bg-[#F5C542] transition-colors flex items-center space-x-1 shadow-[0_0_15px_rgba(230,175,46,0.3)]"
+                  className="px-5 py-2.5 rounded-xl bg-[#E6AF2E] text-black font-heading font-bold text-xs hover:bg-[#F5C542] transition-colors inline-flex items-center gap-1.5 shadow-[0_0_15px_rgba(230,175,46,0.3)] shrink-0"
                 >
                   <span>Enroll Now</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </button>
               </div>
             </div>
@@ -153,9 +153,9 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {benefits.map((ben, idx) => (
-            <div key={idx} className="flex items-start space-x-4 p-5 rounded-2xl bg-white/5 border border-white/5">
+            <div key={idx} className="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/5">
               <div className="w-12 h-12 rounded-xl bg-[#E6AF2E]/20 border border-[#E6AF2E] flex items-center justify-center shrink-0 text-[#E6AF2E]">
-                <CheckCircle2 className="w-6 h-6" />
+                <CheckCircle2 className="w-6 h-6 shrink-0" />
               </div>
               <div className="space-y-1">
                 <h4 className="font-heading font-bold text-lg text-white">{ben.title}</h4>
@@ -169,7 +169,7 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
       {/* Enrollment CTA Box */}
       <div className="p-12 rounded-3xl bg-gradient-to-r from-[#1D170B] via-[#14141E] to-[#111116] border border-[#E6AF2E]/40 text-center max-w-4xl mx-auto space-y-6 shadow-[0_0_60px_rgba(230,175,46,0.2)]">
         <div className="w-16 h-16 rounded-full bg-[#E6AF2E]/20 border-2 border-[#E6AF2E] flex items-center justify-center mx-auto text-[#E6AF2E]">
-          <Award className="w-8 h-8" />
+          <Award className="w-8 h-8 shrink-0" />
         </div>
         <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-white">
           Ready to Start Your Creative Career?
@@ -179,9 +179,10 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
         </p>
         <button
           onClick={() => onOpenBooking('Gebixcuts Academy Enrollment')}
-          className="px-9 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-extrabold text-base hover:bg-[#F5C542] transition-all shadow-[0_0_35px_rgba(230,175,46,0.6)]"
+          className="px-9 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-extrabold text-base hover:bg-[#F5C542] transition-all shadow-[0_0_35px_rgba(230,175,46,0.6)] inline-flex items-center gap-2.5"
         >
-          Submit Enrollment Application
+          <GraduationCap className="w-5 h-5 shrink-0" />
+          <span>Submit Enrollment Application</span>
         </button>
       </div>
 

@@ -64,17 +64,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-2 sm:gap-3 bg-[#121218]/90 backdrop-blur-md border border-white/15 px-6 py-2 rounded-full shadow-lg">
+        <nav className="hidden lg:flex items-center gap-3 xl:gap-5 bg-[#121218]/95 backdrop-blur-md border border-white/20 px-8 py-2.5 rounded-full shadow-2xl">
           {navLinks.map((link) => {
             const isActive = activeTab === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all relative whitespace-nowrap ${
+                className={`px-4.5 py-2 rounded-full text-sm font-semibold tracking-wide transition-all relative whitespace-nowrap ${
                   isActive
-                    ? 'text-[#E6AF2E] font-bold bg-[#E6AF2E]/15 border border-[#E6AF2E]/30 shadow-[0_0_15px_rgba(230,175,46,0.2)]'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                    ? 'text-[#E6AF2E] font-bold bg-[#E6AF2E]/20 border border-[#E6AF2E]/40 shadow-[0_0_20px_rgba(230,175,46,0.3)] scale-105'
+                    : 'text-gray-300 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.name}

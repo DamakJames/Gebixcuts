@@ -19,11 +19,11 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 pb-24 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-40 sm:pt-48 pb-24 space-y-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-6">
-        <div className="flex items-center justify-center space-x-2 text-[#E6AF2E]">
+        <div className="inline-flex items-center justify-center gap-3 text-[#E6AF2E]">
           <span className="h-1 w-8 bg-[#E6AF2E] rounded-full" />
           <span className="font-heading font-bold text-xs uppercase tracking-[0.25em]">CONTACT PAGE</span>
           <span className="h-1 w-8 bg-[#E6AF2E] rounded-full" />
@@ -42,83 +42,83 @@ export const ContactPage: React.FC = () => {
         
         {/* Left Col: Contact Info Cards (5 cols) */}
         <div className="lg:col-span-5 space-y-8">
-          <div className="bg-[#121218] rounded-3xl p-8 border border-white/10 space-y-6 shadow-xl">
+          <div className="bg-[#121218] rounded-3xl p-8 border border-white/15 space-y-8 shadow-2xl">
             <h3 className="font-heading font-bold text-2xl text-white">
               Contact Information
             </h3>
             
             <div className="space-y-6 pt-2">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#E6AF2E]/15 border border-[#E6AF2E]/40 flex items-center justify-center shrink-0 text-[#E6AF2E]">
-                  <MapPin className="w-6 h-6" />
+                  <MapPin className="w-6 h-6 shrink-0" />
                 </div>
-                <div>
-                  <h4 className="font-heading font-bold text-sm text-gray-400 uppercase tracking-wider">Location</h4>
-                  <p className="font-heading font-bold text-lg text-white mt-0.5">Enugu, Nigeria</p>
-                  <p className="text-xs text-gray-400 mt-1">Available for nationwide & international travel</p>
+                <div className="space-y-1">
+                  <h4 className="font-heading font-bold text-xs text-gray-400 uppercase tracking-wider">Location</h4>
+                  <p className="font-heading font-bold text-lg text-white">Enugu, Nigeria</p>
+                  <p className="text-xs text-gray-400">Available for nationwide & international travel</p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#E6AF2E]/15 border border-[#E6AF2E]/40 flex items-center justify-center shrink-0 text-[#E6AF2E]">
-                  <Phone className="w-6 h-6" />
+                  <Phone className="w-6 h-6 shrink-0" />
                 </div>
-                <div>
-                  <h4 className="font-heading font-bold text-sm text-gray-400 uppercase tracking-wider">Phone / WhatsApp</h4>
-                  <a href="tel:+2348061234567" className="font-heading font-bold text-lg text-white hover:text-[#E6AF2E] transition-colors mt-0.5 block">
+                <div className="space-y-1">
+                  <h4 className="font-heading font-bold text-xs text-gray-400 uppercase tracking-wider">Phone / WhatsApp</h4>
+                  <a href="tel:+2348061234567" className="font-heading font-bold text-lg text-white hover:text-[#E6AF2E] transition-colors block">
                     {WEBSITE_DATA.contactInfo.phone}
                   </a>
-                  <p className="text-xs text-[#E6AF2E] mt-1 flex items-center space-x-1 font-semibold">
-                    <Clock className="w-3.5 h-3.5" />
+                  <p className="text-xs text-[#E6AF2E] inline-flex items-center gap-1.5 font-semibold pt-0.5">
+                    <Clock className="w-4 h-4 shrink-0" />
                     <span>Response within 24 hours</span>
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#E6AF2E]/15 border border-[#E6AF2E]/40 flex items-center justify-center shrink-0 text-[#E6AF2E]">
-                  <Mail className="w-6 h-6" />
+                  <Mail className="w-6 h-6 shrink-0" />
                 </div>
-                <div>
-                  <h4 className="font-heading font-bold text-sm text-gray-400 uppercase tracking-wider">Email Address</h4>
-                  <a href={`mailto:${WEBSITE_DATA.contactInfo.email}`} className="font-heading font-bold text-lg text-white hover:text-[#E6AF2E] transition-colors mt-0.5 block">
+                <div className="space-y-1">
+                  <h4 className="font-heading font-bold text-xs text-gray-400 uppercase tracking-wider">Email Address</h4>
+                  <a href={`mailto:${WEBSITE_DATA.contactInfo.email}`} className="font-heading font-bold text-lg text-white hover:text-[#E6AF2E] transition-colors block break-all">
                     {WEBSITE_DATA.contactInfo.email}
                   </a>
-                  <p className="text-xs text-gray-400 mt-1">Direct inquiries & corporate proposals</p>
+                  <p className="text-xs text-gray-400">Direct inquiries & corporate proposals</p>
                 </div>
               </div>
             </div>
 
             <div className="pt-6 border-t border-white/10 space-y-4">
-              <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider">
+              <h4 className="font-heading font-bold text-xs text-white uppercase tracking-wider">
                 Follow Our Studio
               </h4>
-              <div className="flex items-center space-x-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <a 
                   href={WEBSITE_DATA.contactInfo.instagram} 
                   target="_blank" 
                   rel="noreferrer"
-                  className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center space-x-2 text-sm text-gray-300 hover:text-[#E6AF2E] hover:border-[#E6AF2E] transition-all"
+                  className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 inline-flex items-center gap-2.5 text-sm text-gray-300 hover:text-[#E6AF2E] hover:border-[#E6AF2E] transition-all"
                 >
-                  <InstagramIcon className="w-4 h-4 text-[#E6AF2E]" />
+                  <InstagramIcon className="w-4 h-4 shrink-0 text-[#E6AF2E]" />
                   <span>Instagram</span>
                 </a>
                 <a 
                   href={WEBSITE_DATA.contactInfo.facebook} 
                   target="_blank" 
                   rel="noreferrer"
-                  className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center space-x-2 text-sm text-gray-300 hover:text-[#E6AF2E] hover:border-[#E6AF2E] transition-all"
+                  className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 inline-flex items-center gap-2.5 text-sm text-gray-300 hover:text-[#E6AF2E] hover:border-[#E6AF2E] transition-all"
                 >
-                  <FacebookIcon className="w-4 h-4 text-[#E6AF2E]" />
+                  <FacebookIcon className="w-4 h-4 shrink-0 text-[#E6AF2E]" />
                   <span>Facebook</span>
                 </a>
                 <a 
                   href={WEBSITE_DATA.contactInfo.youtube} 
                   target="_blank" 
                   rel="noreferrer"
-                  className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center space-x-2 text-sm text-gray-300 hover:text-[#E6AF2E] hover:border-[#E6AF2E] transition-all"
+                  className="px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 inline-flex items-center gap-2.5 text-sm text-gray-300 hover:text-[#E6AF2E] hover:border-[#E6AF2E] transition-all"
                 >
-                  <YoutubeIcon className="w-4 h-4 text-[#E6AF2E]" />
+                  <YoutubeIcon className="w-4 h-4 shrink-0 text-[#E6AF2E]" />
                   <span>YouTube</span>
                 </a>
               </div>
@@ -127,9 +127,9 @@ export const ContactPage: React.FC = () => {
         </div>
 
         {/* Right Col: Send Us a Message Form (7 cols) */}
-        <div className="lg:col-span-7 bg-[#121218] rounded-3xl p-8 sm:p-12 border border-[#E6AF2E]/30 shadow-2xl relative">
-          <div className="flex items-center space-x-3 mb-8 pb-4 border-b border-white/10">
-            <MessageSquare className="w-6 h-6 text-[#E6AF2E]" />
+        <div className="lg:col-span-7 bg-[#121218] rounded-3xl p-8 sm:p-12 border border-[#E6AF2E]/40 shadow-2xl relative">
+          <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
+            <MessageSquare className="w-6 h-6 shrink-0 text-[#E6AF2E]" />
             <h3 className="font-heading font-bold text-2xl text-white">
               Send Us a Message
             </h3>
@@ -138,7 +138,7 @@ export const ContactPage: React.FC = () => {
           {submitted ? (
             <div className="text-center py-16 space-y-6 animate-fadeIn">
               <div className="w-20 h-20 bg-[#E6AF2E]/20 border-2 border-[#E6AF2E] rounded-full flex items-center justify-center mx-auto text-[#E6AF2E] shadow-[0_0_40px_rgba(230,175,46,0.6)]">
-                <CheckCircle2 className="w-10 h-10" />
+                <CheckCircle2 className="w-10 h-10 shrink-0" />
               </div>
               <div>
                 <h4 className="font-heading text-3xl font-bold text-white">Message Delivered!</h4>
@@ -166,7 +166,7 @@ export const ContactPage: React.FC = () => {
                     placeholder="e.g. Ifeanyi Nwosu" 
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] transition-colors"
+                    className="w-full bg-[#181822] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-colors"
                   />
                 </div>
                 <div>
@@ -179,7 +179,7 @@ export const ContactPage: React.FC = () => {
                     placeholder="e.g. ifeanyi@brand.com" 
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] transition-colors"
+                    className="w-full bg-[#181822] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-colors"
                   />
                 </div>
               </div>
@@ -195,7 +195,7 @@ export const ContactPage: React.FC = () => {
                     placeholder="+234 806 XXX XXXX" 
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] transition-colors"
+                    className="w-full bg-[#181822] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-colors"
                   />
                 </div>
                 <div>
@@ -205,14 +205,14 @@ export const ContactPage: React.FC = () => {
                   <select 
                     value={formData.serviceRequired}
                     onChange={(e) => setFormData({ ...formData, serviceRequired: e.target.value })}
-                    className="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] transition-colors"
+                    className="w-full bg-[#181822] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-colors"
                   >
                     {WEBSITE_DATA.services.map((service) => (
-                      <option key={service.id} value={service.title}>
+                      <option key={service.id} value={service.title} className="bg-[#181822] text-white">
                         {service.title}
                       </option>
                     ))}
-                    <option value="General Consultation">General Consultation / Custom Project</option>
+                    <option value="General Consultation" className="bg-[#181822] text-white">General Consultation / Custom Project</option>
                   </select>
                 </div>
               </div>
@@ -227,16 +227,16 @@ export const ContactPage: React.FC = () => {
                   placeholder="Share your goals, event dates, locations, visual inspiration, or budget expectations..." 
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#181822] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] transition-colors resize-none"
+                  className="w-full bg-[#181822] border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white focus:border-[#E6AF2E] focus:ring-1 focus:ring-[#E6AF2E] transition-colors resize-none"
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-4">
                 <button 
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#E6AF2E] text-black font-heading font-extrabold text-base hover:bg-[#F5C542] transition-all flex items-center justify-center space-x-2 shadow-[0_0_30px_rgba(230,175,46,0.4)]"
+                  className="w-full py-4 rounded-xl bg-[#E6AF2E] text-black font-heading font-extrabold text-base hover:bg-[#F5C542] transition-all inline-flex items-center justify-center gap-2.5 shadow-[0_0_30px_rgba(230,175,46,0.4)]"
                 >
-                  <Send className="w-5 h-5" />
+                  <Send className="w-5 h-5 shrink-0" />
                   <span>Send Message to Studio</span>
                 </button>
               </div>
