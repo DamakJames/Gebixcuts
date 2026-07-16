@@ -2,84 +2,92 @@
 
 /* =========================================================
    🎬 GEBIXCUTS DESIGN SYSTEM — CINEMATIC OBSIDIAN & GOLD
-   Tailwind CSS v4 — Full System CSS
+   Tailwind CSS v4 Clean Architecture
    ========================================================= */
 
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  /* Custom Colors */
+  --color-gold-primary: #E6AF2E;
+  --color-gold-light: #F5C542;
+  --color-gold-dark: #B8861B;
+  --color-bg-main: #060608;
+  --color-bg-obsidian: #0A0A0E;
+  --color-bg-surface: #111116;
+  --color-bg-surface-elevated: #16161D;
+  --color-bg-surface-hover: #1D1D26;
+
+  /* Keyframe Animations */
+  --animate-pulse-glow: pulseGlow 10s infinite ease-in-out;
+  --animate-float: float 4s infinite ease-in-out;
+  --animate-scale-up: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-fade-in: fadeIn 0.3s ease-out both;
+
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.22; transform: scale(1) translateX(0); }
+    50% { opacity: 0.32; transform: scale(1.04) translateX(-1%); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.94) translateY(12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
 /* ---------------------------------------------------------
-   DESIGN TOKENS
+   GLOBAL BASE STYLES
    --------------------------------------------------------- */
 :root {
-  /* Core Backgrounds */
   --bg-main: #060608;
   --bg-obsidian: #0A0A0E;
   --bg-surface: #111116;
   --bg-surface-elevated: #16161D;
-  --bg-surface-hover: #1D1D26;
   --bg-surface-glass: rgba(18, 18, 24, 0.75);
-
-  /* Gold & Accents */
   --gold-primary: #E6AF2E;
-  --gold-light: #F5C542;
-  --gold-dark: #B8861B;
-  --gold-glow: rgba(230, 175, 46, 0.22);
-  --gold-glow-strong: rgba(230, 175, 46, 0.45);
   --gold-gradient: linear-gradient(135deg, #E6AF2E 0%, #F5C542 50%, #D49B20 100%);
-  --gold-radial: radial-gradient(circle at center, rgba(230, 175, 46, 0.18) 0%, transparent 70%);
-
-  /* Typography Colors */
-  --text-primary: #F8F9FA;
-  --text-secondary: #A0A6B2;
-  --text-muted: #6B7280;
-  --text-dark: #0A0A0E;
-
-  /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.08);
   --border-glass: rgba(255, 255, 255, 0.12);
-  --border-gold: rgba(230, 175, 46, 0.35);
-
-  /* Shadows & Effects */
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-  --shadow-gold: 0 0 25px rgba(230, 175, 46, 0.25);
-  --shadow-gold-hover: 0 0 40px rgba(230, 175, 46, 0.45);
 }
 
-/* ---------------------------------------------------------
-   RESET & GLOBAL BASE
-   --------------------------------------------------------- */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
+  background-color: #060608;
+  color: #F8F9FA;
   color-scheme: dark;
-  overflow-x: hidden;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
-  background: var(--bg-main);
-  color: var(--text-primary);
+  background-color: #060608;
+  color: #F8F9FA;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ---------------------------------------------------------
-   TYPOGRAPHY
-   --------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  margin: 0;
 }
 
 a {
@@ -88,153 +96,86 @@ a {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button, input, select, textarea {
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
   font-family: inherit;
   color: inherit;
-  outline: none;
 }
 
 /* ---------------------------------------------------------
-   TAILWIND v4 CUSTOM UTILITIES
-   NOTE: @utility only supports simple single-class names.
-         Compound selectors use plain CSS below instead.
+   CUSTOM UTILITY CLASSES
    --------------------------------------------------------- */
-
-/* font-heading: used via className="font-heading" on any element */
 @utility font-heading {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-/* ---------------------------------------------------------
-   FRACTIONAL SPACING — plain CSS classes for values Tailwind 
-   v4 doesn't generate by default (e.g. 0.5-step fractions).
-   These map to Tailwind-style names used in JSX classNames.
-   --------------------------------------------------------- */
-
-/* px-4.5 = 1.125rem horizontal padding */
-.px-4\.5 { padding-left: 1.125rem; padding-right: 1.125rem; }
-/* py-4.5 = 1.125rem vertical padding */
-.py-4\.5 { padding-top: 1.125rem; padding-bottom: 1.125rem; }
-/* p-4.5 = 1.125rem all padding */
-.p-4\.5 { padding: 1.125rem; }
-/* px-3.5 = 0.875rem horizontal */
-.px-3\.5 { padding-left: 0.875rem; padding-right: 0.875rem; }
-/* py-3.5 = 0.875rem vertical */
-.py-3\.5 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
-/* py-2.5 = 0.625rem vertical */
-.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
-/* px-2.5 = 0.625rem horizontal */
-.px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
-/* p-2.5 = 0.625rem all */
-.p-2\.5 { padding: 0.625rem; }
-/* p-3.5 = 0.875rem all */
-.p-3\.5 { padding: 0.875rem; }
-/* px-1.5 = 0.375rem horizontal */
-.px-1\.5 { padding-left: 0.375rem; padding-right: 0.375rem; }
-/* py-1.5 = 0.375rem vertical */
-.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
-/* py-0.5 = 0.125rem vertical */
-.py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
-
-/* gap-1.5 */
-.gap-1\.5 { gap: 0.375rem; }
-/* gap-2.5 */
-.gap-2\.5 { gap: 0.625rem; }
-/* gap-3.5 */
-.gap-3\.5 { gap: 0.875rem; }
-/* gap-4.5 */
-.gap-4\.5 { gap: 1.125rem; }
-
-/* space-x-*.5 — horizontal margin spacing */
-.space-x-1\.5 > * + * { margin-left: 0.375rem; }
-.space-x-2\.5 > * + * { margin-left: 0.625rem; }
-.space-x-3\.5 > * + * { margin-left: 0.875rem; }
-.space-x-4\.5 > * + * { margin-left: 1.125rem; }
-
-/* space-y-*.5 — vertical margin spacing */
-.space-y-1\.5 > * + * { margin-top: 0.375rem; }
-.space-y-2\.5 > * + * { margin-top: 0.625rem; }
-.space-y-3\.5 > * + * { margin-top: 0.875rem; }
-.space-y-4\.5 > * + * { margin-top: 1.125rem; }
-
-/* w-3.5 / h-3.5 */
-.w-3\.5 { width: 0.875rem; }
-.h-3\.5 { height: 0.875rem; }
-
-/* translate-x-1 */
-.group:hover .group-hover\:translate-x-1 { transform: translateX(0.25rem); }
-
-/* -mt-1 */
-.-mt-1 { margin-top: -0.25rem; }
-
-/* ml-0.5 */
-.ml-0\.5 { margin-left: 0.125rem; }
-
-/* -translate-x-1/2 used in footer */
-.-translate-x-1\/2 { transform: translateX(-50%); }
-
-/* tracking extras */
-.tracking-\[0\.25em\] { letter-spacing: 0.25em; }
-.tracking-\[0\.3em\] { letter-spacing: 0.3em; }
-
-/* px-4.5 & px-9 for CTA */
-.px-9 { padding-left: 2.25rem; padding-right: 2.25rem; }
-
-/* ---------------------------------------------------------
-   REUSABLE AESTHETIC CLASSES
-   --------------------------------------------------------- */
-.gold-text {
-  color: var(--gold-primary);
-}
-
 .gold-gradient-text {
-  background: var(--gold-gradient);
+  background: linear-gradient(135deg, #E6AF2E 0%, #F5C542 50%, #D49B20 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.gold-text {
+  color: #E6AF2E;
+}
+
 .glass-card {
-  background: var(--bg-surface-glass);
+  background: rgba(18, 18, 24, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.glow-box {
-  position: relative;
-}
+/* Fractional padding and sizing utilities used across JSX */
+.px-4\.5 { padding-left: 1.125rem; padding-right: 1.125rem; }
+.py-4\.5 { padding-top: 1.125rem; padding-bottom: 1.125rem; }
+.p-4\.5 { padding: 1.125rem; }
+.px-3\.5 { padding-left: 0.875rem; padding-right: 0.875rem; }
+.py-3\.5 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+.px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
+.p-2\.5 { padding: 0.625rem; }
+.p-3\.5 { padding: 0.875rem; }
+.px-1\.5 { padding-left: 0.375rem; padding-right: 0.375rem; }
+.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+.py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+.gap-1\.5 { gap: 0.375rem; }
+.gap-2\.5 { gap: 0.625rem; }
+.gap-3\.5 { gap: 0.875rem; }
+.gap-4\.5 { gap: 1.125rem; }
+.w-3\.5 { width: 0.875rem; }
+.h-3\.5 { height: 0.875rem; }
+.-mt-1 { margin-top: -0.25rem; }
+.ml-0\.5 { margin-left: 0.125rem; }
+.-translate-x-1\/2 { transform: translateX(-50%); }
+.tracking-\[0\.25em\] { letter-spacing: 0.25em; }
+.tracking-\[0\.3em\] { letter-spacing: 0.3em; }
+.px-9 { padding-left: 2.25rem; padding-right: 2.25rem; }
 
-.glow-box::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: var(--gold-gradient);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  filter: blur(8px);
-}
-
-.glow-box:hover::before {
-  opacity: 0.6;
+/* Group hover translation */
+.group:hover .group-hover\:translate-x-1 {
+  transform: translateX(0.25rem);
 }
 
 /* ---------------------------------------------------------
-   FORM INPUT FOCUS STYLES
+   FORM INPUT STYLES
    --------------------------------------------------------- */
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--gold-primary) !important;
-  box-shadow: 0 0 0 2px rgba(230, 175, 46, 0.25) !important;
+input, select, textarea {
+  font-family: inherit;
+  color: inherit;
   outline: none;
 }
 
-/* Select element — dark themed with custom arrow */
+input:focus, select:focus, textarea:focus {
+  border-color: #E6AF2E !important;
+  box-shadow: 0 0 0 2px rgba(230, 175, 46, 0.25) !important;
+}
+
 select {
   background-color: #1A1A24;
   appearance: none;
@@ -251,123 +192,24 @@ select option {
 }
 
 /* ---------------------------------------------------------
-   BUTTON BASE — prevent browser defaults from showing
-   --------------------------------------------------------- */
-button {
-  cursor: pointer;
-  border: none;
-  background: transparent;
-}
-
-/* ---------------------------------------------------------
    CUSTOM SCROLLBAR
    --------------------------------------------------------- */
 ::-webkit-scrollbar {
   width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--bg-main);
+  background: #060608;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #262633;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-primary);
+  background: #E6AF2E;
 }
 
-/* ---------------------------------------------------------
-   ANIMATIONS — All keyframes used across the site
-   --------------------------------------------------------- */
-
-/* 1. Fade In — modal backdrop, mobile menu drawer */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out both;
-}
-
-/* 2. Scale Up — BookingModal entrance */
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.94) translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-.animate-scaleUp {
-  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-
-/* 3. Pulse Glow — hero background image breathing effect */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.22;
-    transform: scale(1) translateX(0);
-  }
-  50% {
-    opacity: 0.32;
-    transform: scale(1.04) translateX(-1%);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 10s infinite ease-in-out;
-}
-
-/* 4. Float — subtle up-and-down floating */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 4s infinite ease-in-out;
-}
-
-/* 5. Bounce (overrides Tailwind's default to be more subtle) */
-@keyframes bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* ---------------------------------------------------------
-   MOBILE NAV SLIDE-DOWN
-   --------------------------------------------------------- */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------------------------------------------------------
-   IMAGE DEFAULTS
-   --------------------------------------------------------- */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ---------------------------------------------------------
-   SELECTION COLOR
-   --------------------------------------------------------- */
+/* Selection */
 ::selection {
-  background: var(--gold-primary);
+  background: #E6AF2E;
   color: #0A0A0E;
 }

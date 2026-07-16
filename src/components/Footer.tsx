@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
   };
 
   return (
-    <footer className="relative bg-[#06060A] border-t border-white/10 pt-16 pb-12 overflow-hidden">
+    <footer className="relative z-20 mt-16 sm:mt-24 bg-[#06060A] border-t border-white/10 pt-16 pb-12 overflow-hidden">
       {/* Top Gold Radial Backlight */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-24 bg-gradient-to-b from-[#E6AF2E]/10 to-transparent blur-3xl pointer-events-none" />
 
