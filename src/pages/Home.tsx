@@ -44,62 +44,158 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
     <div className="flex flex-col gap-24 sm:gap-32 pb-24 sm:pb-32">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center pt-36 pb-24 overflow-hidden">
-        {/* Background Atmosphere & Silhouette Mockup overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=80" 
-            alt="Cinematic Camera Setup"
-            className="w-full h-full object-cover opacity-25 scale-105 animate-pulse-glow"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06060A] via-[#06060A]/90 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06060A] via-transparent to-[#06060A]" />
-          {/* Gold Radial Ambient Glow */}
-          <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-[#E6AF2E]/10 rounded-full blur-[140px] pointer-events-none" />
+      <section className="relative min-h-[92vh] flex items-center pt-36 pb-20 overflow-hidden">
+        {/* Subtle Ambient Backlight */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#E6AF2E]/10 rounded-full blur-[140px]" />
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-red-600/5 rounded-full blur-[140px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#060608] via-transparent to-[#060608]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="max-w-3xl space-y-8">
-            {/* Tagline Eyebrow */}
-            <div className="flex items-center space-x-3">
-              <span className="h-px w-12 bg-[#E6AF2E]" />
-              <span className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-[#E6AF2E]">
-                {WEBSITE_DATA.tagline}
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl leading-[1.18] tracking-tight text-white py-2">
-              Your Story Deserves <br className="hidden sm:inline" />
-              More Than Just a Camera. <br />
-              <span className="gold-gradient-text block sm:inline mt-2 sm:mt-0">It Deserves a Vision.</span>
-            </h1>
-
-            {/* Description */}
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl font-normal">
-              {WEBSITE_DATA.heroDescription}
-            </p>
-
-            {/* Dual CTAs */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-4">
-              <button
-                onClick={() => onOpenBooking()}
-                className="group px-8 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-bold text-sm sm:text-base hover:bg-[#F5C542] transition-all flex items-center space-x-3 shadow-[0_0_30px_rgba(230,175,46,0.4)] hover:shadow-[0_0_45px_rgba(230,175,46,0.7)] hover:scale-105"
-              >
-                <span>Book a Session</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <button
-                onClick={() => onOpenVideo()}
-                className="group px-7 py-4 rounded-full bg-[#14141C]/80 border border-white/15 hover:border-[#E6AF2E] text-white font-heading font-semibold text-sm sm:text-base backdrop-blur-md transition-all flex items-center space-x-3.5 hover:bg-[#1C1C26]"
-              >
-                <div className="w-7 h-7 rounded-full bg-[#E6AF2E]/20 flex items-center justify-center text-[#E6AF2E] group-hover:bg-[#E6AF2E] group-hover:text-black transition-colors">
-                  <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Ultra-Tight Typography & HUD */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              
+              {/* Live Viewfinder Recording Badge */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#121218]/90 border border-[#E6AF2E]/40 shadow-[0_0_25px_rgba(230,175,46,0.2)] animate-fadeIn">
+                <div className="flex items-center gap-2 px-2.5 py-0.5 rounded bg-red-600/20 border border-red-500/60 text-[10px] font-extrabold text-red-500 uppercase tracking-widest animate-pulse">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+                  <span>REC</span>
                 </div>
-                <span>View Our Portfolio</span>
-              </button>
+                <span className="text-xs font-mono font-bold text-gray-300 tracking-wider">
+                  [ 4K UHD • 60FPS • ISO 800 ]
+                </span>
+              </div>
+
+              {/* Tagline Eyebrow */}
+              <div className="flex items-center space-x-3 pt-1">
+                <span className="h-px w-10 bg-[#E6AF2E]" />
+                <span className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-[#E6AF2E]">
+                  {WEBSITE_DATA.tagline}
+                </span>
+              </div>
+
+              {/* Headline with ultra-tight line height */}
+              <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.08] tracking-tight text-white">
+                Your Story Deserves <br />
+                More Than Just a Camera. <br />
+                <span className="gold-gradient-text block mt-1.5 sm:mt-2">It Deserves a Vision.</span>
+              </h1>
+
+              {/* Description */}
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl font-normal pt-1">
+                {WEBSITE_DATA.heroDescription}
+              </p>
+
+              {/* Dual CTAs */}
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-3">
+                <button
+                  onClick={() => onOpenBooking()}
+                  className="group px-8 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-bold text-sm sm:text-base hover:bg-[#F5C542] transition-all flex items-center space-x-3 shadow-[0_0_30px_rgba(230,175,46,0.4)] hover:shadow-[0_0_45px_rgba(230,175,46,0.7)] hover:scale-105"
+                >
+                  <span>Book a Session</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  onClick={() => onOpenVideo()}
+                  className="group px-7 py-4 rounded-full bg-[#14141C]/90 border border-white/15 hover:border-[#E6AF2E] text-white font-heading font-semibold text-sm sm:text-base backdrop-blur-md transition-all flex items-center space-x-3.5 hover:bg-[#1C1C26]"
+                >
+                  <div className="w-7 h-7 rounded-full bg-[#E6AF2E]/20 flex items-center justify-center text-[#E6AF2E] group-hover:bg-[#E6AF2E] group-hover:text-black transition-colors">
+                    <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                  </div>
+                  <span>View Our Portfolio</span>
+                </button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-semibold text-gray-400 border-t border-white/10 max-w-lg">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#E6AF2E]" />
+                  <span>250+ Projects Produced</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#E6AF2E]" />
+                  <span>Enugu & Nationwide Production</span>
+                </div>
+              </div>
+
             </div>
+
+            {/* Right Column: High-End Cinema Camera Rig & Viewfinder HUD */}
+            <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+              <div className="relative mx-auto max-w-md lg:max-w-none">
+                
+                {/* Main Viewfinder Box */}
+                <div className="relative rounded-3xl overflow-hidden border border-[#E6AF2E]/30 bg-[#111116] shadow-[0_0_80px_rgba(230,175,46,0.22)] group aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5]">
+                  
+                  {/* High-Resolution Cinema Camera Photograph */}
+                  <img
+                    src="https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=1200&q=80"
+                    alt="Professional Cinema Camera Rig"
+                    className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
+                  />
+
+                  {/* Dark Cinematic Grading & Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-black/40 opacity-80" />
+
+                  {/* Viewfinder Corner HUD Brackets */}
+                  <div className="absolute top-4 left-4 w-7 h-7 border-t-2 border-l-2 border-[#E6AF2E] pointer-events-none" />
+                  <div className="absolute top-4 right-4 w-7 h-7 border-t-2 border-r-2 border-[#E6AF2E] pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 w-7 h-7 border-b-2 border-l-2 border-[#E6AF2E] pointer-events-none" />
+                  <div className="absolute bottom-4 right-4 w-7 h-7 border-b-2 border-r-2 border-[#E6AF2E] pointer-events-none" />
+
+                  {/* Top HUD Recording Overlay */}
+                  <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15 flex items-center gap-3 text-xs font-mono font-bold text-white z-10 shadow-lg">
+                    <span className="flex h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse" />
+                    <span className="text-red-400">REC</span>
+                    <span className="text-gray-400">|</span>
+                    <span>TC 01:24:48:19</span>
+                  </div>
+
+                  {/* Center Crosshair HUD Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
+                    <div className="w-16 h-16 border border-white/40 rounded-full flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#E6AF2E]" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Stats Overlay inside Camera Card */}
+                  <div className="absolute bottom-6 left-6 right-6 bg-[#121218]/90 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between text-left shadow-2xl">
+                    <div className="flex items-center gap-3.5">
+                      <div className="w-11 h-11 rounded-xl bg-[#E6AF2E]/20 border border-[#E6AF2E] flex items-center justify-center text-[#E6AF2E] shrink-0">
+                        <Clapperboard className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Production Setup</p>
+                        <p className="font-heading font-extrabold text-sm text-white">4K Cinema RIG & Audio</p>
+                      </div>
+                    </div>
+                    <div className="text-right hidden sm:block">
+                      <span className="px-2.5 py-1 rounded-md bg-[#E6AF2E]/20 text-[#E6AF2E] font-mono text-[11px] font-extrabold block">
+                        RAW 12-BIT
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Floating Glass Badge: Broadcast Standard */}
+                <div className="absolute -top-6 -left-6 bg-[#14141E]/95 border border-[#E6AF2E]/40 px-4 py-3 rounded-2xl shadow-[0_0_30px_rgba(230,175,46,0.25)] backdrop-blur-md hidden sm:flex items-center gap-3 z-20 animate-float">
+                  <div className="w-10 h-10 rounded-xl bg-[#E6AF2E]/20 border border-[#E6AF2E] flex items-center justify-center text-[#E6AF2E]">
+                    <Aperture className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Optics & Grading</p>
+                    <p className="text-xs font-heading font-extrabold text-white">Anamorphic & DaVinci</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
