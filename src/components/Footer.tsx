@@ -1,5 +1,5 @@
 import React from 'react';
-import { Film, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from './SocialIcons';
 import { WEBSITE_DATA } from '../data/websiteData';
 
@@ -26,19 +26,13 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
           <div className="lg:col-span-4 space-y-5">
             <div 
               onClick={() => handleNavClick('home')}
-              className="flex items-center space-x-3 cursor-pointer group w-fit"
+              className="flex items-center cursor-pointer group w-fit"
             >
-              <div className="w-10 h-10 flex items-center justify-center bg-[#14141E] border border-[#E6AF2E]/40 rounded-xl group-hover:border-[#E6AF2E] transition-colors shadow-[0_0_15px_rgba(230,175,46,0.15)]">
-                <Film className="w-5 h-5 text-[#E6AF2E]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-xl text-white">
-                  <span className="text-[#E6AF2E]">G</span>EBIX
-                </span>
-                <span className="text-[8px] uppercase font-bold tracking-[0.25em] text-[#A0A6B2] -mt-1">
-                  — CUTS —
-                </span>
-              </div>
+              <img 
+                src="/logo.svg" 
+                alt="Gebixcuts Logo" 
+                className="h-10 w-auto object-contain brightness-100 group-hover:scale-[1.03] transition-transform duration-300" 
+              />
             </div>
 
             <p className="font-heading font-semibold text-xs tracking-widest text-[#E6AF2E] uppercase">

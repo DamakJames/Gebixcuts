@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Film } from 'lucide-react';
+import { Menu, X, ArrowRight, User } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onOpenBooking: () => void;
+  onOpenLogin: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenBooking }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenBooking, onOpenLogin }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -46,21 +47,13 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
         {/* Brand Logo */}
         <div 
           onClick={() => handleNavClick('home')}
-          className="flex items-center space-x-3 cursor-pointer group"
+          className="flex items-center cursor-pointer group"
         >
-          {/* Custom Film Reel G Logo SVG Icon */}
-          <div className="relative w-11 h-11 flex items-center justify-center bg-gradient-to-br from-[#181822] to-[#0A0A0E] border border-[#E6AF2E]/40 rounded-xl group-hover:border-[#E6AF2E] transition-all shadow-[0_0_15px_rgba(230,175,46,0.2)]">
-            <Film className="w-6 h-6 text-[#E6AF2E] group-hover:scale-110 transition-transform" />
-            <div className="absolute inset-0 bg-[#E6AF2E]/10 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading font-extrabold text-xl md:text-2xl tracking-tighter text-white flex items-center">
-              <span className="text-[#E6AF2E]">G</span>EBIX
-            </span>
-            <span className="text-[9px] uppercase font-bold tracking-[0.3em] text-[#A0A6B2] -mt-1 group-hover:text-[#E6AF2E] transition-colors">
-              — CUTS —
-            </span>
-          </div>
+          <img 
+            src="/logo.svg" 
+            alt="Gebixcuts Logo" 
+            className="h-10 md:h-12 w-auto object-contain brightness-100 group-hover:scale-[1.03] transition-transform duration-300" 
+          />
         </div>
 
         {/* Desktop Navigation Links */}
@@ -83,8 +76,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
           })}
         </nav>
 
-        {/* Book a Session CTA (Desktop) */}
-        <div className="hidden sm:flex items-center">
+        {/* Book a Session CTA & Client Login (Desktop) */}
+        <div className="hidden sm:flex items-center space-x-3">
+          <button
+            onClick={onOpenLogin}
+            className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold text-gray-300 hover:text-white transition-colors bg-white/5 hover:bg-white/10 border border-white/10"
+          >
+            <User className="w-4 h-4 text-[#E6AF2E]" />
+            <span>Portal Login</span>
+          </button>
+          
           <button
             onClick={onOpenBooking}
             className="group relative px-5 py-2.5 rounded-full bg-transparent border border-[#E6AF2E] text-[#E6AF2E] text-xs sm:text-sm font-heading font-bold hover:bg-[#E6AF2E] hover:text-black transition-all duration-300 flex items-center space-x-2 shadow-[0_0_20px_rgba(230,175,46,0.25)] hover:shadow-[0_0_35px_rgba(230,175,46,0.6)] overflow-hidden"
@@ -134,7 +135,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
               );
             })}
           </div>
-          <div className="pt-3 border-t border-white/10">
+          <div className="pt-3 border-t border-white/10 space-y-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenLogin();
+              }}
+              className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-heading font-bold text-sm flex items-center justify-center space-x-2 border border-white/10 transition-all"
+            >
+              <User className="w-4 h-4 text-[#E6AF2E]" />
+              <span>Portal Login</span>
+            </button>
+            
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

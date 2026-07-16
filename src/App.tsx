@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { TrainingBookingModal } from './components/TrainingBookingModal';
 import { VideoModal } from './components/VideoModal';
+import { LoginModal } from './components/LoginModal';
 import { WhatsAppFloatingIcon } from './components/WhatsAppFloatingIcon';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -17,6 +18,7 @@ export function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
   const [isBookingOpen, setIsBookingOpen] = useState<boolean>(false);
   const [isTrainingBookingOpen, setIsTrainingBookingOpen] = useState<boolean>(false);
+  const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false);
   const [preselectedService, setPreselectedService] = useState<string | undefined>();
   const [preselectedCourse, setPreselectedCourse] = useState<string | undefined>();
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
@@ -53,6 +55,7 @@ export function App() {
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
         onOpenBooking={() => handleOpenBooking()} 
+        onOpenLogin={() => setIsLoginOpen(true)}
       />
 
       {/* Dynamic Page Views */}
@@ -105,6 +108,10 @@ export function App() {
         isOpen={isVideoOpen} 
         onClose={() => setIsVideoOpen(false)} 
         project={selectedProject} 
+      />
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
       />
     </div>
   );
