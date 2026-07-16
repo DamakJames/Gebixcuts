@@ -15,6 +15,59 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenVideo }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [cameraCarouselIndex, setCameraCarouselIndex] = useState(0);
+  const [taglineIndex, setTaglineIndex] = useState(0);
+
+  const cameraRigs = [
+    {
+      id: "rig-red",
+      image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80",
+      title: "RED V-Raptor Cinema Rig",
+      spec: "16-Bit RAW • DaVinci Studio Suite",
+      tc: "TC 01:24:48:19"
+    },
+    {
+      id: "rig-arri",
+      image: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=1200&q=80",
+      title: "ARRI Alexa Mini Anamorphic",
+      spec: "ProRes 4444 XQ • Cooke Primes",
+      tc: "TC 02:15:33:04"
+    },
+    {
+      id: "rig-sony",
+      image: "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?auto=format&fit=crop&w=1200&q=80",
+      title: "Sony Venice FX9 Production Rig",
+      spec: "Full Frame Sensor • Dual ISO",
+      tc: "TC 00:48:12:15"
+    },
+    {
+      id: "rig-filmset",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+      title: "Commercial Film Set Setup",
+      spec: "120FPS Slow-Mo • Wireless FIZ",
+      tc: "TC 03:09:21:11"
+    }
+  ];
+
+  const taglineSlides = [
+    "🎬 Cinematic Brand Films, Commercial Documentaries & High-End Visual Storytelling.",
+    "⚡ State-of-the-Art RED & ARRI Cinema Camera Rigs with Hollywood Color Grading.",
+    "🏆 Over 250+ Commercial Projects & High-End Productions across Nigeria & Globally.",
+    "🎓 Master Professional Cinematography & Editing at Gebixcuts Academy."
+  ];
+
+  React.useEffect(() => {
+    const cameraTimer = setInterval(() => {
+      setCameraCarouselIndex((prev) => (prev + 1) % cameraRigs.length);
+    }, 4000);
+    const taglineTimer = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % taglineSlides.length);
+    }, 3500);
+    return () => {
+      clearInterval(cameraTimer);
+      clearInterval(taglineTimer);
+    };
+  }, [cameraRigs.length, taglineSlides.length]);
 
   const renderServiceIcon = (iconName: string) => {
     switch (iconName) {
@@ -55,8 +108,8 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Left Column: Ultra-Tight Typography & HUD */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            {/* Left Column: Ultra-Tight 4D Typography & HUD */}
+            <div className="lg:col-span-7 space-y-5 text-left">
               
               {/* Live Viewfinder Recording Badge */}
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#121218]/90 border border-[#E6AF2E]/40 shadow-[0_0_25px_rgba(230,175,46,0.2)] animate-fadeIn">
@@ -77,17 +130,23 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
                 </span>
               </div>
 
-              {/* Headline with ultra-tight line height */}
-              <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.08] tracking-tight text-white">
-                Your Story Deserves <br />
-                More Than Just a Camera. <br />
-                <span className="gold-gradient-text block mt-1.5 sm:mt-2">It Deserves a Vision.</span>
+              {/* 4D-Like Cinematic Headline with Ultra-Tight Spacing */}
+              <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.08] tracking-tight text-white drop-shadow-[0_8px_25px_rgba(230,175,46,0.35)] transition-all duration-500 hover:scale-[1.01]">
+                <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent block">Your Story Deserves</span>
+                <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block">More Than Just a Camera.</span>
+                <span className="gold-gradient-text block mt-1 sm:mt-2 drop-shadow-[0_4px_15px_rgba(230,175,46,0.6)]">It Deserves a Vision.</span>
               </h1>
 
-              {/* Description */}
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl font-normal pt-1">
-                {WEBSITE_DATA.heroDescription}
-              </p>
+              {/* Summarized Tagline Carousel with Typing Slide Effect */}
+              <div className="pt-1 min-h-[54px] flex items-center">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[#121218]/95 border border-[#E6AF2E]/40 shadow-[0_0_20px_rgba(230,175,46,0.15)] max-w-xl animate-fadeIn transition-all duration-500">
+                  <div className="w-2 h-2 rounded-full bg-[#E6AF2E] animate-ping shrink-0" />
+                  <p key={taglineIndex} className="text-xs sm:text-sm font-semibold text-gray-200 leading-snug animate-fadeIn flex-1">
+                    {taglineSlides[taglineIndex]}
+                  </p>
+                  <span className="w-0.5 h-4 bg-[#E6AF2E] animate-pulse shrink-0" />
+                </div>
+              </div>
 
               {/* Dual CTAs */}
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-3">
@@ -111,7 +170,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
               </div>
 
               {/* Trust Indicators */}
-              <div className="pt-4 flex flex-wrap items-center gap-6 text-xs font-semibold text-gray-400 border-t border-white/10 max-w-lg">
+              <div className="pt-3 flex flex-wrap items-center gap-6 text-xs font-semibold text-gray-400 border-t border-white/10 max-w-lg">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#E6AF2E]" />
                   <span>250+ Projects Produced</span>
@@ -124,22 +183,27 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
 
             </div>
 
-            {/* Right Column: High-End Cinema Camera Rig & Viewfinder HUD */}
+            {/* Right Column: Rotating High-End Cinema Camera Rig Carousel & Viewfinder HUD */}
             <div className="lg:col-span-5 relative mt-6 lg:mt-0">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Main Viewfinder Box */}
+                {/* Main Viewfinder Box with Carousel */}
                 <div className="relative rounded-3xl overflow-hidden border border-[#E6AF2E]/30 bg-[#111116] shadow-[0_0_80px_rgba(230,175,46,0.22)] group aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5]">
                   
-                  {/* High-Resolution Cinema Camera Photograph */}
-                  <img
-                    src="https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=1200&q=80"
-                    alt="Professional Cinema Camera Rig"
-                    className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-700"
-                  />
+                  {/* Rotating High-Resolution Cinema Camera Photographs */}
+                  {cameraRigs.map((rig, idx) => (
+                    <img
+                      key={rig.id}
+                      src={rig.image}
+                      alt={rig.title}
+                      className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ${
+                        idx === cameraCarouselIndex ? 'opacity-100 scale-105 group-hover:scale-110 z-0' : 'opacity-0 scale-100 -z-10'
+                      }`}
+                    />
+                  ))}
 
                   {/* Dark Cinematic Grading & Vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-black/40 opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060608] via-transparent to-black/40 opacity-80 pointer-events-none" />
 
                   {/* Viewfinder Corner HUD Brackets */}
                   <div className="absolute top-4 left-4 w-7 h-7 border-t-2 border-l-2 border-[#E6AF2E] pointer-events-none" />
@@ -147,12 +211,25 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
                   <div className="absolute bottom-4 left-4 w-7 h-7 border-b-2 border-l-2 border-[#E6AF2E] pointer-events-none" />
                   <div className="absolute bottom-4 right-4 w-7 h-7 border-b-2 border-r-2 border-[#E6AF2E] pointer-events-none" />
 
-                  {/* Top HUD Recording Overlay */}
-                  <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15 flex items-center gap-3 text-xs font-mono font-bold text-white z-10 shadow-lg">
+                  {/* Top HUD Recording Overlay with Dynamic Timecode */}
+                  <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-black/75 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/15 flex items-center gap-3 text-xs font-mono font-bold text-white z-10 shadow-lg">
                     <span className="flex h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse" />
                     <span className="text-red-400">REC</span>
                     <span className="text-gray-400">|</span>
-                    <span>TC 01:24:48:19</span>
+                    <span>{cameraRigs[cameraCarouselIndex].tc}</span>
+                  </div>
+
+                  {/* Carousel Indicator Dots inside Top Right */}
+                  <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5 bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-md border border-white/10">
+                    {cameraRigs.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setCameraCarouselIndex(dotIdx)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          dotIdx === cameraCarouselIndex ? 'bg-[#E6AF2E] w-4' : 'bg-white/40 hover:bg-white'
+                        }`}
+                      />
+                    ))}
                   </div>
 
                   {/* Center Crosshair HUD Overlay */}
@@ -162,20 +239,20 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
                     </div>
                   </div>
 
-                  {/* Bottom Stats Overlay inside Camera Card */}
-                  <div className="absolute bottom-6 left-6 right-6 bg-[#121218]/90 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between text-left shadow-2xl">
+                  {/* Bottom Stats Overlay inside Camera Card showing dynamic rig specs */}
+                  <div className="absolute bottom-6 left-6 right-6 bg-[#121218]/95 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between text-left shadow-2xl z-10 transition-all duration-500">
                     <div className="flex items-center gap-3.5">
                       <div className="w-11 h-11 rounded-xl bg-[#E6AF2E]/20 border border-[#E6AF2E] flex items-center justify-center text-[#E6AF2E] shrink-0">
                         <Clapperboard className="w-5 h-5" />
                       </div>
                       <div>
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Production Setup</p>
-                        <p className="font-heading font-extrabold text-sm text-white">4K Cinema RIG & Audio</p>
+                        <p className="font-heading font-extrabold text-sm text-white">{cameraRigs[cameraCarouselIndex].title}</p>
                       </div>
                     </div>
                     <div className="text-right hidden sm:block">
                       <span className="px-2.5 py-1 rounded-md bg-[#E6AF2E]/20 text-[#E6AF2E] font-mono text-[11px] font-extrabold block">
-                        RAW 12-BIT
+                        {cameraRigs[cameraCarouselIndex].spec.split(' • ')[0]}
                       </span>
                     </div>
                   </div>
@@ -189,7 +266,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
                   </div>
                   <div className="text-left">
                     <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Optics & Grading</p>
-                    <p className="text-xs font-heading font-extrabold text-white">Anamorphic & DaVinci</p>
+                    <p className="text-xs font-heading font-extrabold text-white">{cameraRigs[cameraCarouselIndex].spec.split(' • ')[1] || 'Anamorphic & DaVinci'}</p>
                   </div>
                 </div>
 
