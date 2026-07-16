@@ -23,6 +23,14 @@ export function App() {
   const [preselectedCourse, setPreselectedCourse] = useState<string | undefined>();
   const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1800);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleOpenBooking = (serviceName?: string) => {
     if (serviceName && serviceName.toLowerCase().includes('academy')) {
@@ -47,6 +55,33 @@ export function App() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeTab]);
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-[#060608] z-50 flex flex-col items-center justify-center space-y-6">
+        <div className="relative w-28 h-28 flex items-center justify-center">
+          {/* Outer glowing pulsing border */}
+          <div className="absolute inset-0 rounded-full border border-[#E6AF2E]/10 animate-ping duration-1000" />
+          {/* Animated Gold Ring */}
+          <div className="absolute inset-2 rounded-full border-2 border-[#E6AF2E]/20 border-t-[#E6AF2E] animate-spin" style={{ animationDuration: '0.8s' }} />
+          {/* Center Brand Icon */}
+          <img 
+            src="/icon.svg" 
+            alt="Gebixcuts Icon" 
+            className="w-12 h-12 object-contain animate-pulse" 
+          />
+        </div>
+        <div className="flex flex-col items-center space-y-1.5">
+          <p className="font-heading font-extrabold text-lg uppercase tracking-[0.3em] text-[#E6AF2E] animate-pulse">
+            GEBIX
+          </p>
+          <span className="text-[9px] uppercase tracking-[0.3em] text-gray-500 font-extrabold">
+            EVERY FRAME. EVERY STORY.
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#060608] text-white flex flex-col justify-between selection:bg-[#E6AF2E] selection:text-black font-sans">

@@ -16,7 +16,7 @@ interface HomeProps {
 export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenVideo }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [cameraCarouselIndex, setCameraCarouselIndex] = useState(0);
-  const [taglineIndex, setTaglineIndex] = useState(0);
+  const [heroIndex, setHeroIndex] = useState(0);
 
   const cameraRigs = [
     {
@@ -28,7 +28,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
     },
     {
       id: "rig-arri",
-      image: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?auto=format&fit=crop&w=1200&q=80",
+      image: "https://images.unsplash.com/photo-1524985069026-dd778a51c7b7?auto=format&fit=crop&w=1200&q=80",
       title: "ARRI Alexa Mini Anamorphic",
       spec: "ProRes 4444 XQ • Cooke Primes",
       tc: "TC 02:15:33:04"
@@ -49,25 +49,36 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
     }
   ];
 
-  const taglineSlides = [
-    "🎬 Cinematic Brand Films, Commercial Documentaries & High-End Visual Storytelling.",
-    "⚡ State-of-the-Art RED & ARRI Cinema Camera Rigs with Hollywood Color Grading.",
-    "🏆 Over 250+ Commercial Projects & High-End Productions across Nigeria & Globally.",
-    "🎓 Master Professional Cinematography & Editing at Gebixcuts Academy."
+  const heroSlides = [
+    {
+      line1: "Your Story Deserves",
+      line2: "More Than Just a Camera.",
+      highlight: "It Deserves a Vision."
+    },
+    {
+      line1: "Crafting High-End",
+      line2: "Cinematic Brand Films.",
+      highlight: "Every Frame. Every Story."
+    },
+    {
+      line1: "Capturing Moments",
+      line2: "That Echo in Eternity.",
+      highlight: "Enugu & Nationwide."
+    }
   ];
 
   React.useEffect(() => {
     const cameraTimer = setInterval(() => {
       setCameraCarouselIndex((prev) => (prev + 1) % cameraRigs.length);
     }, 4000);
-    const taglineTimer = setInterval(() => {
-      setTaglineIndex((prev) => (prev + 1) % taglineSlides.length);
-    }, 3500);
+    const heroTimer = setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
     return () => {
       clearInterval(cameraTimer);
-      clearInterval(taglineTimer);
+      clearInterval(heroTimer);
     };
-  }, [cameraRigs.length, taglineSlides.length]);
+  }, [cameraRigs.length, heroSlides.length]);
 
   const renderServiceIcon = (iconName: string) => {
     switch (iconName) {
@@ -130,21 +141,31 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
                 </span>
               </div>
 
-              {/* 4D-Like Cinematic Headline with Ultra-Tight Spacing */}
-              <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.08] tracking-tight text-white drop-shadow-[0_8px_25px_rgba(230,175,46,0.35)] transition-all duration-500 hover:scale-[1.01]">
-                <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent block">Your Story Deserves</span>
-                <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block">More Than Just a Camera.</span>
-                <span className="gold-gradient-text block mt-1 sm:mt-2 drop-shadow-[0_4px_15px_rgba(230,175,46,0.6)]">It Deserves a Vision.</span>
-              </h1>
+              {/* 4D-Like Dynamic Cinematic Headline with Ultra-Tight Spacing */}
+              <div className="min-h-[170px] sm:min-h-[220px] lg:min-h-[250px] flex items-center">
+                <h1 
+                  key={heroIndex}
+                  className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.08] tracking-tight text-white drop-shadow-[0_8px_25px_rgba(230,175,46,0.35)] transition-all duration-500 hover:scale-[1.01] animate-fadeIn w-full"
+                >
+                  <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent block">
+                    {heroSlides[heroIndex].line1}
+                  </span>
+                  <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block">
+                    {heroSlides[heroIndex].line2}
+                  </span>
+                  <span className="gold-gradient-text block mt-1 sm:mt-2 drop-shadow-[0_4px_15px_rgba(230,175,46,0.6)]">
+                    {heroSlides[heroIndex].highlight}
+                  </span>
+                </h1>
+              </div>
 
-              {/* Summarized Tagline Carousel with Typing Slide Effect */}
-              <div className="pt-1 min-h-[54px] flex items-center">
-                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[#121218]/95 border border-[#E6AF2E]/40 shadow-[0_0_20px_rgba(230,175,46,0.15)] max-w-xl animate-fadeIn transition-all duration-500">
-                  <div className="w-2 h-2 rounded-full bg-[#E6AF2E] animate-ping shrink-0" />
-                  <p key={taglineIndex} className="text-xs sm:text-sm font-semibold text-gray-200 leading-snug animate-fadeIn flex-1">
-                    {taglineSlides[taglineIndex]}
+              {/* Static Description Tagline */}
+              <div className="pt-1">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-[#121218]/95 border border-[#E6AF2E]/40 shadow-[0_0_20px_rgba(230,175,46,0.15)] max-w-xl">
+                  <div className="w-2 h-2 rounded-full bg-[#E6AF2E] shrink-0" />
+                  <p className="text-xs sm:text-sm font-semibold text-gray-200 leading-snug">
+                    🎬 Cinematic Brand Films, Documentaries, Drone Coverage & Professional Academy.
                   </p>
-                  <span className="w-0.5 h-4 bg-[#E6AF2E] animate-pulse shrink-0" />
                 </div>
               </div>
 
@@ -404,17 +425,21 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
           </div>
         </div>
 
-        {/* Horizontal Project Showcase Cards */}
+        {/* Horizontal Project Showcase Cards - Mobile Responsive Carousel */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {WEBSITE_DATA.portfolio
             .slice(carouselIndex, carouselIndex + 4)
             .concat(WEBSITE_DATA.portfolio.slice(0, Math.max(0, carouselIndex + 4 - WEBSITE_DATA.portfolio.length)))
             .slice(0, 4)
-            .map((item) => (
+            .map((item, index) => (
             <div
               key={item.id}
               onClick={() => onOpenVideo(item)}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#121218] border border-white/10 hover:border-[#E6AF2E] cursor-pointer shadow-xl transition-all duration-500"
+              className={`group relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#121218] border border-white/10 hover:border-[#E6AF2E] cursor-pointer shadow-xl transition-all duration-500 animate-fadeIn ${
+                index === 0 ? 'block' :
+                index === 1 ? 'hidden sm:block' :
+                'hidden lg:block'
+              }`}
             >
               <img 
                 src={item.thumbnailUrl} 
