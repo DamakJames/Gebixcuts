@@ -320,8 +320,8 @@ export const WEBSITE_DATA = {
 
   contactInfo: {
     location: "Enugu, Nigeria",
-    phone: "+234 806 123 4567",
-    email: "hello@gebixcuts.com",
+    phone: "+234 904 212 3833",
+    email: "gebixcuts@gmail.com",
     instagram: "https://instagram.com/gebixcuts",
     facebook: "https://facebook.com/gebixcuts",
     tiktok: "https://tiktok.com/@gebixcuts",

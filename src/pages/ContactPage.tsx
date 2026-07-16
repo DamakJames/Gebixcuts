@@ -15,6 +15,16 @@ export const ContactPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+
+    const message = `Hello Gebixcuts Studio! 🎬 I sent an inquiry via your Contact Page.\n\n` +
+      `*Full Name:* ${formData.fullName}\n` +
+      `*Email Address:* ${formData.email}\n` +
+      `*Phone/WhatsApp:* ${formData.phone}\n` +
+      `*Service Required:* ${formData.serviceRequired}\n` +
+      `*Project Brief / Message:* ${formData.message}`;
+
+    const whatsappUrl = `https://wa.me/2349042123833?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -67,8 +77,8 @@ export const ContactPage: React.FC = () => {
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Phone / WhatsApp</p>
-                <a href="tel:+2348061234567" className="text-base font-semibold text-white hover:text-[#E6AF2E] transition-colors block mt-0.5">
-                  +234 806 123 4567
+                <a href="tel:+2349042123833" className="text-base font-semibold text-white hover:text-[#E6AF2E] transition-colors block mt-0.5">
+                  +234 904 212 3833
                 </a>
                 <div className="inline-flex items-center gap-2 text-xs text-[#E6AF2E] font-semibold pt-1">
                   <span className="w-2 h-2 rounded-full bg-[#E6AF2E] animate-pulse" />
@@ -84,8 +94,8 @@ export const ContactPage: React.FC = () => {
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-gray-400">Email Address</p>
-                <a href="mailto:hello@gebixcuts.com" className="text-base font-semibold text-white hover:text-[#E6AF2E] transition-colors block mt-0.5 break-all">
-                  hello@gebixcuts.com
+                <a href="mailto:gebixcuts@gmail.com" className="text-base font-semibold text-white hover:text-[#E6AF2E] transition-colors block mt-0.5 break-all">
+                  gebixcuts@gmail.com
                 </a>
                 <p className="text-xs text-gray-400 mt-0.5">Direct inquiries & corporate proposals</p>
               </div>
@@ -142,25 +152,44 @@ export const ContactPage: React.FC = () => {
           </div>
 
           {submitted ? (
-            <div className="text-center py-16 space-y-6">
-              <div className="w-20 h-20 rounded-full bg-[#E6AF2E]/20 border-2 border-[#E6AF2E] flex items-center justify-center mx-auto text-[#E6AF2E] animate-bounce">
+            <div className="text-center py-12 space-y-6 animate-fadeIn">
+              <div className="w-20 h-20 rounded-full bg-[#E6AF2E]/20 border-2 border-[#E6AF2E] flex items-center justify-center mx-auto text-[#E6AF2E] shadow-[0_0_30px_rgba(230,175,46,0.5)]">
                 <CheckCircle2 className="w-10 h-10 shrink-0" />
               </div>
               <div className="space-y-2">
-                <h3 className="font-heading font-extrabold text-3xl text-white">Message Sent Successfully!</h3>
+                <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">Redirecting to WhatsApp!</h3>
                 <p className="text-gray-300 max-w-md mx-auto text-sm sm:text-base">
-                  Thank you for reaching out, <span className="text-[#E6AF2E] font-bold">{formData.fullName || 'Creator'}</span>. Our production desk has received your brief and will respond via WhatsApp or Email within 24 hours.
+                  Thank you, <span className="text-[#E6AF2E] font-bold">{formData.fullName || 'Creator'}</span>. Your message has been sent directly to our studio desk on WhatsApp (<strong className="text-white">+234 904 212 3833</strong>) for instant response!
                 </p>
               </div>
-              <button
-                onClick={() => {
-                  setSubmitted(false);
-                  setFormData({ fullName: '', email: '', phone: '', serviceRequired: 'Cinematography', message: '' });
-                }}
-                className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-[#E6AF2E] text-white hover:text-black font-heading font-bold text-xs uppercase tracking-wider transition-all border border-white/15"
-              >
-                Send Another Inquiry
-              </button>
+
+              <div className="bg-[#16161E] rounded-2xl p-5 border border-white/10 max-w-md mx-auto space-y-2 text-left text-xs text-gray-300">
+                <p className="font-bold text-gray-400 uppercase tracking-wider text-center pb-1">Direct Studio Contact</p>
+                <p>WhatsApp/Call: <strong className="text-[#E6AF2E]">+234 904 212 3833</strong></p>
+                <p>Email: <strong className="text-[#E6AF2E]">gebixcuts@gmail.com</strong></p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button
+                  onClick={() => {
+                    const message = `Hello Gebixcuts Studio! 🎬 I sent an inquiry via your Contact Page.\n\n*Name:* ${formData.fullName}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Service:* ${formData.serviceRequired}\n*Message:* ${formData.message}`;
+                    window.open(`https://wa.me/2349042123833?text=${encodeURIComponent(message)}`, '_blank');
+                  }}
+                  className="px-6 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs flex items-center justify-center gap-2 shadow-lg"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Open WhatsApp Again</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({ fullName: '', email: '', phone: '', serviceRequired: 'Cinematography', message: '' });
+                  }}
+                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-[#E6AF2E] text-white hover:text-black font-heading font-bold text-xs uppercase tracking-wider transition-all border border-white/15"
+                >
+                  Send Another Inquiry
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -208,7 +237,7 @@ export const ContactPage: React.FC = () => {
                   <input
                     type="tel"
                     required
-                    placeholder="+234 806 XXX XXXX"
+                    placeholder="+234 904 212 3833"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full rounded-xl bg-[#1A1A24] border border-white/15 text-white placeholder-gray-500 text-sm transition-all"

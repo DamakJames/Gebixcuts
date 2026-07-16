@@ -8,9 +8,10 @@ import type { ServiceItem } from '../data/websiteData';
 
 interface ServicesPageProps {
   onOpenBooking: (service?: string) => void;
+  onOpenTrainingBooking?: (course?: string) => void;
 }
 
-export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => {
+export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking, onOpenTrainingBooking }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const renderServiceIcon = (iconName: string) => {
@@ -124,7 +125,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
                 <span className="text-xs font-bold text-[#E6AF2E]">{service.priceEstimate || 'Custom Quote'}</span>
               </div>
               <button
-                onClick={() => onOpenBooking(service.title)}
+                onClick={() => (service.title === 'Gebixcuts Academy' && onOpenTrainingBooking) ? onOpenTrainingBooking() : onOpenBooking(service.title)}
                 className="px-5 py-2.5 rounded-xl bg-[#E6AF2E] text-black font-heading font-bold text-xs hover:bg-[#F5C542] transition-colors flex items-center space-x-1.5 shadow-[0_0_15px_rgba(230,175,46,0.3)]"
               >
                 <span>Book Now</span>

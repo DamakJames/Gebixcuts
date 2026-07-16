@@ -109,7 +109,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-[#E6AF2E] shrink-0" />
-                <a href="tel:+2348061234567" className="hover:text-[#E6AF2E] transition-colors">
+                <a href="tel:+2349042123833" className="hover:text-[#E6AF2E] transition-colors">
                   {WEBSITE_DATA.contactInfo.phone}
                 </a>
               </div>

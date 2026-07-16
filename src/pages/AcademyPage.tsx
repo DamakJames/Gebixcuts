@@ -3,9 +3,10 @@ import { GraduationCap, Camera, Clapperboard, Scissors, Send, Smartphone, CheckC
 
 interface AcademyPageProps {
   onOpenBooking: (service?: string) => void;
+  onOpenTrainingBooking?: (course?: string) => void;
 }
 
-export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
+export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking, onOpenTrainingBooking }) => {
   const courses = [
     {
       id: "photo-masterclass",
@@ -75,7 +76,7 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
         </p>
         <div className="pt-2">
           <button
-            onClick={() => onOpenBooking('Gebixcuts Academy Enrollment')}
+            onClick={() => onOpenTrainingBooking ? onOpenTrainingBooking() : onOpenBooking('Gebixcuts Academy Enrollment')}
             className="px-8 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-bold text-sm hover:bg-[#F5C542] transition-all shadow-[0_0_30px_rgba(230,175,46,0.5)] scale-105 inline-flex items-center gap-2.5"
           >
             <GraduationCap className="w-5 h-5 shrink-0" />
@@ -128,7 +129,7 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
               <div className="pt-6 border-t border-white/10 flex items-center justify-between gap-4">
                 <span className="text-xs text-gray-400 font-medium">Limited Seats / Cohort</span>
                 <button
-                  onClick={() => onOpenBooking(`Academy: ${course.title}`)}
+                  onClick={() => onOpenTrainingBooking ? onOpenTrainingBooking(course.title) : onOpenBooking(`Academy: ${course.title}`)}
                   className="px-5 py-2.5 rounded-xl bg-[#E6AF2E] text-black font-heading font-bold text-xs hover:bg-[#F5C542] transition-colors inline-flex items-center gap-1.5 shadow-[0_0_15px_rgba(230,175,46,0.3)] shrink-0"
                 >
                   <span>Enroll Now</span>
@@ -178,7 +179,7 @@ export const AcademyPage: React.FC<AcademyPageProps> = ({ onOpenBooking }) => {
           Enrollment for our upcoming 2026 cohort in Enugu is currently open. Secure your spot today and receive professional mentorship that sets you apart.
         </p>
         <button
-          onClick={() => onOpenBooking('Gebixcuts Academy Enrollment')}
+          onClick={() => onOpenTrainingBooking ? onOpenTrainingBooking() : onOpenBooking('Gebixcuts Academy Enrollment')}
           className="px-9 py-4 rounded-full bg-[#E6AF2E] text-black font-heading font-extrabold text-base hover:bg-[#F5C542] transition-all shadow-[0_0_35px_rgba(230,175,46,0.6)] inline-flex items-center gap-2.5"
         >
           <GraduationCap className="w-5 h-5 shrink-0" />

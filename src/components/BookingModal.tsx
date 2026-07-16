@@ -24,9 +24,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, pre
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
-      // Keep state briefly for feedback
-    }, 2000);
+
+    const message = `Hello Gebixcuts Studio! 🎬 I would like to book a session or make an inquiry.\n\n` +
+      `*Full Name:* ${formData.fullName}\n` +
+      `*Email Address:* ${formData.email}\n` +
+      `*Phone/WhatsApp:* ${formData.phone}\n` +
+      `*Service Required:* ${formData.serviceRequired}\n` +
+      `*Project Date:* ${formData.projectDate || 'Flexible / TBD'}\n` +
+      `*Project Brief & Vision:* ${formData.projectBrief}`;
+
+    const whatsappUrl = `https://wa.me/2349042123833?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   const handleResetAndClose = () => {
@@ -70,22 +78,41 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, pre
         {/* Content Body */}
         <div className="p-6 sm:p-8">
           {submitted ? (
-            <div className="text-center py-12 space-y-6 animate-fadeIn">
+            <div className="text-center py-10 space-y-6 animate-fadeIn">
               <div className="w-20 h-20 bg-[#E6AF2E]/20 border-2 border-[#E6AF2E] rounded-full flex items-center justify-center mx-auto text-[#E6AF2E] shadow-[0_0_30px_rgba(230,175,46,0.5)]">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <div>
-                <h4 className="font-heading text-2xl font-bold text-white">Inquiry Received!</h4>
+              <div className="space-y-2">
+                <h4 className="font-heading text-2xl font-bold text-white">Redirecting to WhatsApp!</h4>
                 <p className="text-sm text-gray-300 mt-2 max-w-md mx-auto leading-relaxed">
-                  Thank you, <span className="text-[#E6AF2E] font-semibold">{formData.fullName || 'Visionary'}</span>. Our creative team in Enugu will review your project brief and contact you via Phone/WhatsApp within <span className="text-white font-bold">24 hours</span> to discuss dates and production strategy.
+                  Thank you, <span className="text-[#E6AF2E] font-semibold">{formData.fullName || 'Visionary'}</span>. Your booking brief has been sent directly to our studio WhatsApp (<span className="text-white font-bold">+234 904 212 3833</span>) for instant response within 24 hours.
                 </p>
               </div>
-              <button 
-                onClick={handleResetAndClose}
-                className="px-8 py-3 rounded-full bg-[#E6AF2E] text-black font-bold text-sm hover:bg-[#F5C542] transition-colors shadow-[0_0_20px_rgba(230,175,46,0.3)]"
-              >
-                Return to Website
-              </button>
+
+              <div className="bg-[#16161E] rounded-2xl p-5 border border-white/10 max-w-md mx-auto space-y-2 text-left text-xs text-gray-300">
+                <p className="font-bold text-gray-400 uppercase tracking-wider text-center pb-1">Direct Studio Contact</p>
+                <p>WhatsApp/Call: <strong className="text-[#E6AF2E]">+234 904 212 3833</strong></p>
+                <p>Email: <strong className="text-[#E6AF2E]">gebixcuts@gmail.com</strong></p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button 
+                  onClick={() => {
+                    const message = `Hello Gebixcuts Studio! 🎬 I would like to book a session.\n\n*Name:* ${formData.fullName}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone}\n*Service:* ${formData.serviceRequired}\n*Brief:* ${formData.projectBrief}`;
+                    window.open(`https://wa.me/2349042123833?text=${encodeURIComponent(message)}`, '_blank');
+                  }}
+                  className="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs flex items-center justify-center gap-2 shadow-lg"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Open WhatsApp Again</span>
+                </button>
+                <button 
+                  onClick={handleResetAndClose}
+                  className="px-6 py-3 rounded-xl bg-white/10 text-white font-bold text-xs hover:bg-white/20 transition-colors border border-white/15"
+                >
+                  Return to Website
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -126,7 +153,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, pre
                   <input 
                     type="tel" 
                     required 
-                    placeholder="+234 806 XXX XXXX" 
+                    placeholder="+234 904 212 3833" 
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full bg-[#181820] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#E6AF2E] transition-colors"
