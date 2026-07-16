@@ -41,7 +41,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
   };
 
   return (
-    <div className="space-y-24 sm:space-y-32">
+    <div className="flex flex-col gap-24 sm:gap-32 pb-24 sm:pb-32">
       
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center pt-36 pb-24 overflow-hidden">

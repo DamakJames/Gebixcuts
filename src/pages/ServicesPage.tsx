@@ -36,7 +36,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenBooking }) => 
     : WEBSITE_DATA.services.filter(s => s.category === selectedCategory);
 
   return (
-    <div className="pt-48 sm:pt-56 pb-24 space-y-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-48 sm:pt-56 pb-28 sm:pb-36 flex flex-col gap-16 sm:gap-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-6">

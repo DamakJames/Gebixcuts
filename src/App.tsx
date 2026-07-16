@@ -43,7 +43,7 @@ export function App() {
       />
 
       {/* Dynamic Page Views */}
-      <main className="flex-grow">
+      <main className="flex-grow flex flex-col">
         {activeTab === 'home' && (
           <Home 
             setActiveTab={setActiveTab} 
