@@ -38,14 +38,15 @@ export const WEBSITE_DATA = {
     "At Gebixcuts, we don't just capture moments—we create cinematic experiences that inspire, connect, and leave lasting impressions. From brand films and documentaries to weddings, events, and digital content, we bring every story to life with creativity, precision, and excellence.",
   
   trustedBrands: [
-    { name: "Dunamis Intl. Gospel Centre", logoText: "DUNAMIS", subtitle: "INTL. GOSPEL CENTRE" },
+    { name: "Todal Media", logoText: "TODAL", subtitle: "MEDIA" },
+    { name: "Leafup Digital", logoText: "LEAFUP", subtitle: "DIGITAL" },
+    { name: "Bethel Media", logoText: "BETHEL", subtitle: "MEDIA" },
     { name: "FirstBank Since 1894", logoText: "FirstBank", subtitle: "Since 1894" },
     { name: "GTBank", logoText: "GTBank", subtitle: "" },
     { name: "Access Bank", logoText: "access", subtitle: "" },
     { name: "Airtel Nigeria", logoText: "airtel", subtitle: "" },
     { name: "MAX Media", logoText: "MAX", subtitle: "MEDIA" },
     { name: "LASAA", logoText: "LASAA", subtitle: "" },
-    { name: "Redemption Camp", logoText: "Redemption", subtitle: "CAMP" },
   ],
 
   stats: [
@@ -93,7 +94,7 @@ export const WEBSITE_DATA = {
       id: "documentary",
       title: "Documentary Production",
       shortDesc: "Authentic stories crafted with depth, emotion, and cinematic quality.",
-      fullDesc: "We specialize in in-depth documentary filmmaking for organizations, NGOs, ministries, and personal legacies. Our approach combines exhaustive research, intimate character interviews, and cinematic B-roll to tell powerful narratives that inspire action.",
+      fullDesc: "We specialize in in-depth documentary filmmaking for organizations, NGOs, corporate brands, and personal legacies. Our approach combines exhaustive research, intimate character interviews, and cinematic B-roll to tell powerful narratives that inspire action.",
       category: "Video",
       iconName: "Camera",
       imageUrl: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
@@ -102,8 +103,8 @@ export const WEBSITE_DATA = {
     {
       id: "event-coverage",
       title: "Event Coverage",
-      shortDesc: "Professional coverage for weddings, conferences, church programs, concerts, birthdays, and corporate events.",
-      fullDesc: "Ensure no moment is forgotten with multi-camera cinematic event documentation. We capture high-energy conferences, sacred church conventions, royal weddings, and corporate summits with unobtrusive precision and crystal-clear broadcast audio.",
+      shortDesc: "Professional coverage for summits, conferences, brand launches, concerts, awards, and corporate events.",
+      fullDesc: "Ensure no moment is forgotten with multi-camera cinematic event documentation. We capture high-energy conferences, international tech summits, royal celebrations, and corporate awards with unobtrusive precision and crystal-clear broadcast audio.",
       category: "Video",
       iconName: "Users",
       imageUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
@@ -193,15 +194,15 @@ export const WEBSITE_DATA = {
 
   portfolio: [
     {
-      id: "faith-conference",
-      title: "Faith Conference 2026",
+      id: "bethel-media-summit",
+      title: "Global Media & Tech Summit 2026",
       category: "Event Coverage",
       filterCategory: "Events",
       thumbnailUrl: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       duration: "04:15",
-      client: "Dunamis International Gospel Centre",
-      description: "A multi-camera broadcast production and highlight reel capturing the spirit, worship, and keynote sessions of over 20,000 attendees."
+      client: "Bethel Media & Todal Productions",
+      description: "A multi-camera broadcast production and highlight reel capturing the keynotes, panel sessions, and creative masterclasses of over 5,000 attendees."
     },
     {
       id: "flourish-brand",
@@ -286,34 +287,34 @@ export const WEBSITE_DATA = {
   testimonials: [
     {
       id: "1",
-      quote: "Gebixcuts turned our vision into a cinematic masterpiece. The team is professional, creative, and reliable. Highly recommended!",
-      author: "Happy Client",
-      role: "Verified Production Partner",
-      organization: "Corporate & Ministry Events",
+      quote: "Gebixcuts turned our vision into a cinematic masterpiece. From concept to broadcast delivery, their precision, creative direction, and color grading were exceptional!",
+      author: "Adewale Okonkwo",
+      role: "Creative Director",
+      organization: "Todal Media",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: "2",
-      quote: "Their attention to detail and commitment to excellence is second to none. From start to finish, the experience was smooth and the final output was beyond our expectations.",
-      author: "Happy Client",
-      role: "Verified Brand Client",
-      organization: "Commercial Brand Campaign",
+      quote: "Their attention to detail and fast turnaround speed is second to none. Gebixcuts consistently elevates our digital campaigns with high-impact visuals that drive massive engagement.",
+      author: "Chidinma Okafor",
+      role: "Head of Digital Strategy",
+      organization: "Leafup Digital",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: "3",
-      quote: "Our event was captured beautifully from start to finish. Every moment felt truly cinematic and authentic. Working with the Gebixcuts team was seamless.",
-      author: "Happy Client",
-      role: "Verified Wedding Client",
-      organization: "Luxury Wedding Production",
+      quote: "Working with the Gebixcuts team on our multi-camera production was seamless. Every frame looked crystal-clear, broadcast-grade, and truly cinematic!",
+      author: "Emanuel Nwangi",
+      role: "Executive Producer",
+      organization: "Bethel Media",
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
     },
     {
       id: "4",
       quote: "Our real estate brand has grown significantly because of the premium, crisp walkthrough visuals Gebixcuts delivered. Every listing sold within weeks!",
-      author: "Happy Client",
-      role: "Verified Real Estate Client",
-      organization: "Architectural & Property Showcase",
+      author: "David Chukwuma",
+      role: "Lead Broker & Developer",
+      organization: "Max Realty & Properties",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
     }
   ] as TestimonialItem[],

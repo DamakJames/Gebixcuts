@@ -16,7 +16,9 @@ interface HomeProps {
 export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenVideo }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [cameraCarouselIndex, setCameraCarouselIndex] = useState(0);
-  const [heroIndex, setHeroIndex] = useState(0);
+  const [typingIndex, setTypingIndex] = useState(0);
+  const [typedText, setTypedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const cameraRigs = [
     {
@@ -49,36 +51,43 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
     }
   ];
 
-  const heroSlides = [
-    {
-      line1: "Your Story Deserves",
-      line2: "More Than Just a Camera.",
-      highlight: "It Deserves a Vision."
-    },
-    {
-      line1: "Crafting High-End",
-      line2: "Cinematic Brand Films.",
-      highlight: "Every Frame. Every Story."
-    },
-    {
-      line1: "Capturing Moments",
-      line2: "That Echo in Eternity.",
-      highlight: "Enugu & Nationwide."
-    }
+  const typingOptions = [
+    "Vision to Life.",
+    "Brand to the Screen.",
+    "Story into Focus.",
+    "Moments to Eternity.",
+    "Ideas to Cinema."
   ];
 
   React.useEffect(() => {
     const cameraTimer = setInterval(() => {
       setCameraCarouselIndex((prev) => (prev + 1) % cameraRigs.length);
     }, 4000);
-    const heroTimer = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 4500);
-    return () => {
-      clearInterval(cameraTimer);
-      clearInterval(heroTimer);
-    };
-  }, [cameraRigs.length, heroSlides.length]);
+    return () => clearInterval(cameraTimer);
+  }, [cameraRigs.length]);
+
+  React.useEffect(() => {
+    const currentOption = typingOptions[typingIndex];
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && typedText === currentOption) {
+      timer = setTimeout(() => setIsDeleting(true), 2200);
+    } else if (isDeleting && typedText === "") {
+      setIsDeleting(false);
+      setTypingIndex((prev) => (prev + 1) % typingOptions.length);
+    } else {
+      const speed = isDeleting ? 35 : 75;
+      timer = setTimeout(() => {
+        setTypedText(
+          isDeleting
+            ? currentOption.substring(0, typedText.length - 1)
+            : currentOption.substring(0, typedText.length + 1)
+        );
+      }, speed);
+    }
+
+    return () => clearTimeout(timer);
+  }, [typedText, isDeleting, typingIndex]);
 
   const renderServiceIcon = (iconName: string) => {
     switch (iconName) {
@@ -141,20 +150,21 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
                 </span>
               </div>
 
-              {/* 4D-Like Dynamic Cinematic Headline with Ultra-Tight Spacing */}
+              {/* Static Cinematic Headline with Typing Keyword Animation */}
               <div className="min-h-[170px] sm:min-h-[220px] lg:min-h-[250px] flex items-center">
-                <h1 
-                  key={heroIndex}
-                  className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.08] tracking-tight text-white drop-shadow-[0_8px_25px_rgba(230,175,46,0.35)] transition-all duration-500 hover:scale-[1.01] animate-fadeIn w-full"
-                >
+                <h1 className="font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl leading-[1.08] sm:leading-[1.12] tracking-tight text-white drop-shadow-[0_8px_25px_rgba(230,175,46,0.35)] transition-all duration-500 hover:scale-[1.01] w-full">
                   <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent block">
-                    {heroSlides[heroIndex].line1}
+                    Your Story Deserves
                   </span>
                   <span className="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent block">
-                    {heroSlides[heroIndex].line2}
+                    More Than Just a Camera.
                   </span>
-                  <span className="gold-gradient-text block mt-1 sm:mt-2 drop-shadow-[0_4px_15px_rgba(230,175,46,0.6)]">
-                    {heroSlides[heroIndex].highlight}
+                  <span className="block mt-2 sm:mt-3 text-3xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold">
+                    <span className="text-gray-200">We bring your </span>
+                    <span className="gold-gradient-text drop-shadow-[0_4px_15px_rgba(230,175,46,0.6)] inline-block min-h-[1em]">
+                      {typedText}
+                    </span>
+                    <span className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-[#E6AF2E] ml-1.5 align-middle animate-pulse" />
                   </span>
                 </h1>
               </div>
@@ -304,7 +314,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
           <p className="text-center text-xs uppercase font-bold tracking-[0.25em] text-[#E6AF2E] mb-8">
             TRUSTED BY BRANDS, BUSINESSES & VISIONARIES
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 sm:gap-8 items-center justify-items-center opacity-85">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-14 items-center opacity-85">
             {WEBSITE_DATA.trustedBrands.map((brand, idx) => (
               <div 
                 key={idx} 
