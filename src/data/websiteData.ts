@@ -46,7 +46,6 @@ export const WEBSITE_DATA = {
     { name: "Access Bank", logoText: "access", subtitle: "" },
     { name: "Airtel Nigeria", logoText: "airtel", subtitle: "" },
     { name: "MAX Media", logoText: "MAX", subtitle: "MEDIA" },
-    { name: "LASAA", logoText: "LASAA", subtitle: "" },
   ],
 
   stats: [

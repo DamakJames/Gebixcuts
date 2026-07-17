@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
           className="flex items-center cursor-pointer group"
         >
           <img 
-            src="/logo.svg" 
+            src="/logo (1).png" 
             alt="Gebixcuts Logo" 
             className="h-10 md:h-12 w-auto object-contain brightness-100 group-hover:scale-[1.03] transition-transform duration-300" 
           />

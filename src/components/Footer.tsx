@@ -29,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
               className="flex items-center cursor-pointer group w-fit"
             >
               <img 
-                src="/logo.svg" 
+                src="/logo (1).png" 
                 alt="Gebixcuts Logo" 
                 className="h-10 w-auto object-contain brightness-100 group-hover:scale-[1.03] transition-transform duration-300" 
               />

@@ -314,7 +314,7 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
           <p className="text-center text-xs uppercase font-bold tracking-[0.25em] text-[#E6AF2E] mb-8">
             TRUSTED BY BRANDS, BUSINESSES & VISIONARIES
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-center justify-items-center opacity-90">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-center justify-items-center opacity-90">
             {WEBSITE_DATA.trustedBrands.map((brand, idx) => (
               <div 
                 key={idx} 
