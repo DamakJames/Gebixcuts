@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
             </div>
 
             <p className="font-heading font-semibold text-xs tracking-widest text-[#E6AF2E] uppercase">
-              {WEBSITE_DATA.tagline}
+              Cinematic Media & Academy Studio
             </p>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
@@ -151,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-          <p>© 2026 Gebixcuts. All Rights Reserved. Every Frame. Every Story.</p>
+          <p>© 2026 Gebixcuts. All Rights Reserved.</p>
           <div className="flex items-center space-x-6">
             <button onClick={() => handleNavClick('about')} className="hover:text-gray-400">Privacy Policy</button>
             <button onClick={() => handleNavClick('about')} className="hover:text-gray-400">Terms of Service</button>

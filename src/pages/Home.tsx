@@ -314,17 +314,17 @@ export const Home: React.FC<HomeProps> = ({ setActiveTab, onOpenBooking, onOpenV
           <p className="text-center text-xs uppercase font-bold tracking-[0.25em] text-[#E6AF2E] mb-8">
             TRUSTED BY BRANDS, BUSINESSES & VISIONARIES
           </p>
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 lg:gap-14 items-center opacity-85">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-center justify-items-center opacity-90">
             {WEBSITE_DATA.trustedBrands.map((brand, idx) => (
               <div 
                 key={idx} 
-                className="flex flex-col items-center text-center p-3 rounded-xl hover:bg-white/5 transition-colors w-full group cursor-pointer"
+                className="flex flex-col items-center justify-center text-center p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E6AF2E]/40 hover:bg-white/[0.06] transition-all duration-300 w-full min-h-[85px] sm:min-h-[95px] group cursor-pointer shadow-lg hover:scale-[1.02]"
               >
-                <span className="font-heading font-extrabold text-base sm:text-lg text-gray-400 group-hover:text-[#E6AF2E] transition-colors tracking-tight">
+                <span className="font-heading font-extrabold text-base sm:text-lg text-gray-300 group-hover:text-[#E6AF2E] transition-colors tracking-tight">
                   {brand.logoText}
                 </span>
                 {brand.subtitle && (
-                  <span className="text-[9px] uppercase tracking-wider text-gray-500 group-hover:text-gray-300">
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-500 group-hover:text-gray-300 mt-1 font-semibold">
                     {brand.subtitle}
                   </span>
                 )}

@@ -83,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
             className="flex items-center space-x-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold text-gray-300 hover:text-white transition-colors bg-white/5 hover:bg-white/10 border border-white/10"
           >
             <User className="w-4 h-4 text-[#E6AF2E]" />
-            <span>Portal Login</span>
+            <span>Student Portal</span>
           </button>
           
           <button
@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
               className="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-heading font-bold text-sm flex items-center justify-center space-x-2 border border-white/10 transition-all"
             >
               <User className="w-4 h-4 text-[#E6AF2E]" />
-              <span>Portal Login</span>
+              <span>Student Portal</span>
             </button>
             
             <button
